@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segredos Digitais - A Criptografia no seu Celular</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .icon {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            font-size: 2rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 154, 158, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 154, 158, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .start-journey {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .start-journey:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Sections */
+        .section-2 { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); }
+        .section-3 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .section-4 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .section-5 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .interactive-element {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            max-width: 800px;
+        }
+
+        .interactive-element:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .lock-animation {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .lock {
+            width: 60px;
+            height: 40px;
+            border: 4px solid #fff;
+            border-radius: 10px 10px 5px 5px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: all 0.5s ease;
+        }
+
+        .lock::before {
+            content: '';
+            width: 20px;
+            height: 25px;
+            border: 4px solid #fff;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+            position: absolute;
+            top: -25px;
+            left: 14px;
+            transition: all 0.5s ease;
+        }
+
+        .lock.unlocked {
+            transform: rotate(10deg);
+        }
+
+        .lock.unlocked::before {
+            transform: rotate(-45deg);
+            left: 5px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .knowledge-points {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+
+        .mini-game {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .cipher-input {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            color: white;
+            font-size: 1.1rem;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .cipher-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .decode-btn {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .decode-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .certificate {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate::before {
+            content: '🏆';
+            font-size: 4rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            opacity: 0.2;
+        }
+
+        .hidden-easter-egg {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            font-size: 2rem;
+        }
+
+        .hidden-easter-egg.show {
+            opacity: 0.5;
+        }
+
+        .hidden-easter-egg:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .section h2 { font-size: 2rem; }
+            .section { padding: 1rem; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="knowledge-points">
+        🧠 <span id="points">0</span> pontos
+    </div>
+
+    <!-- Hero Section -->
+    <section class="section hero" id="section1">
+        <div class="floating-icons">
+            <div class="icon" style="top: 10%; left: 10%; animation-delay: 0s;">🔐</div>
+            <div class="icon" style="top: 20%; right: 15%; animation-delay: 1s;">📱</div>
+            <div class="icon" style="top: 60%; left: 20%; animation-delay: 2s;">🔑</div>
+            <div class="icon" style="bottom: 20%; right: 20%; animation-delay: 3s;">💻</div>
+            <div class="icon" style="top: 40%; right: 30%; animation-delay: 4s;">🛡️</div>
+        </div>
+        <div class="hero-content">
+            <h1>SEGREDOS DIGITAIS</h1>
+            <p>Descubra como seu celular protege seus segredos mais íntimos</p>
+            <button class="start-journey" onclick="startJourney()">🚀 Iniciar Jornada Secreta</button>
+        </div>
+        <div class="scroll-indicator">⬇️</div>
+        <div class="hidden-easter-egg" id="easterEgg1">🕵️</div>
+    </section>
+
+    <!-- Section 2: O Cofre Invisível -->
+    <section class="section section-2" id="section2">
+        <h2>🏦 O Cofre Invisível</h2>
+        <div class="interactive-element" onclick="unlockCofre()">
+            <div class="lock-animation">
+                <div class="lock" id="cofre-lock"></div>
+            </div>
+            <h3>Seu celular é um cofre ultra-secreto</h3>
+            <p>Clique no cadeado para descobrir quantos segredos seu celular guarda neste exato momento...</p>
+            <div id="cofre-secrets" style="display: none; margin-top: 1rem;">
+                <p>🎯 <strong>Revelação:</strong> Seu celular protege mais de 1.000 informações pessoais por dia!</p>
+                <ul style="text-align: left; margin-top: 1rem;">
+                    <li>📸 Suas fotos mais íntimas</li>
+                    <li>💰 Dados bancários e cartões</li>
+                    <li>💬 Conversas privadas</li>
+                    <li>📍 Onde você está agora mesmo</li>
+                    <li>🔍 O que você pesquisou ontem</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: A Linguagem Secreta -->
+    <section class="section section-3" id="section3">
+        <h2>🗣️ A Linguagem Secreta</h2>
+        <div class="interactive-element">
+            <h3>Vamos falar em código?</h3>
+            <p>Sua mensagem "OLÁ" se transforma em algo assim quando é criptografada:</p>
+            <div class="mini-game">
+                <div style="font-size: 1.5rem; font-family: monospace; letter-spacing: 3px; margin: 1rem 0;">
+                    01001111 01001100 11000001
+                </div>
+                <input type="text" class="cipher-input" placeholder="Digite uma mensagem secreta..." id="messageInput">
+                <br>
+                <button class="decode-btn" onclick="encryptMessage()">🔐 Transformar em Código Secreto</button>
+                <div id="encrypted-result" style="margin-top: 1rem; font-family: monospace; font-size: 1.2rem;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: O Guardião Digital -->
+    <section class="section section-4" id="section4">
+        <h2>🤖 O Guardião Digital</h2>
+        <div class="interactive-element" onclick="revealGuardian()">
+            <h3>Conheça seu protetor invisível</h3>
+            <p>Existe um "guardião" dentro do seu celular que nunca dorme. Clique para acordá-lo!</p>
+            <div id="guardian-reveal" style="display: none; margin-top: 2rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🛡️</div>
+                <h4>Chip de Segurança - Seu Guarda-Costas 24/7</h4>
+                <p>Este pequeno chip:</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <div>⚡ Processa 1000+ verificações por segundo</div>
+                    <div>🔒 Nunca revela suas chaves secretas</div>
+                    <div>🚫 Bloqueia hackers automaticamente</div>
+                    <div>🔐 Criptografa tudo em tempo real</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Missão Final -->
+    <section class="section section-5" id="section5">
+        <h2>🎯 Missão Final: Decodificador Expert</h2>
+        <div class="certificate">
+            <h3>🏆 Parabéns, Agente Secreto!</h3>
+            <p>Você descobriu como a criptografia protege sua vida digital!</p>
+            <div style="margin: 2rem 0;">
+                <strong>Certificado de</strong><br>
+                <span style="font-size: 1.5rem; color: #ffd700;">DECODIFICADOR DIGITAL</span><br>
+                <small>Nível: Especialista em Segurança</small>
+            </div>
+            <button class="decode-btn" onclick="shareKnowledge()" style="margin-top: 1rem;">
+                📤 Compartilhar Conhecimento
+            </button>
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: center;">
+            <h4>🚀 Próxima Missão</h4>
+            <p>Que tal descobrir "Como a IA reconhece seu rosto"?</p>
+            <button class="start-journey" onclick="nextMission()">Nova Aventura →</button>
+        </div>
+    </section>
+
+    <script>
+        let currentSection = 1;
+        let points = 0;
+
+        function updateProgress() {
+            const progress = (currentSection / 5) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function addPoints(amount) {
+            points += amount;
+            document.getElementById('points').textContent = points;
+            
+            // Easter egg quando chega a 100 pontos
+            if (points >= 100) {
+                document.getElementById('easterEgg1').classList.add('show');
+            }
+        }
+
+        function startJourney() {
+            currentSection = 2;
+            updateProgress();
+            addPoints(10);
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function unlockCofre() {
+            document.getElementById('cofre-lock').classList.add('unlocked');
+            document.getElementById('cofre-secrets').style.display = 'block';
+            addPoints(25);
+            setTimeout(() => {
+                currentSection = 3;
+                updateProgress();
+                document.getElementById('section3').scrollIntoView({ behavior: 'smooth' });
+            }, 3000);
+        }
+
+        function encryptMessage() {
+            const input = document.getElementById('messageInput').value;
+            if (!input) return;
+            
+            // Simula criptografia convertendo para binário
+            let encrypted = '';
+            for (let char of input.toUpperCase()) {
+                encrypted += char.charCodeAt(0).toString(2).padStart(8, '0') + ' ';
+            }
+            
+            document.getElementById('encrypted-result').textContent = encrypted;
+            addPoints(30);
+            
+            setTimeout(() => {
+                currentSection = 4;
+                updateProgress();
+                document.getElementById('section4').scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        }
+
+        function revealGuardian() {
+            document.getElementById('guardian-reveal').style.display = 'block';
+            addPoints(25);
+            
+            setTimeout(() => {
+                currentSection = 5;
+                updateProgress();
+                document.getElementById('section5').scrollIntoView({ behavior: 'smooth' });
+            }, 4000);
+        }
+
+        function shareKnowledge() {
+            addPoints(20);
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Segredos Digitais',
+                    text: 'Acabei de descobrir como a criptografia protege nossos celulares! 🔐',
+                    url: window.location.href
+                });
+            } else {
+                alert('🎉 Conhecimento compartilhado! Você é oficialmente um Decodificador Digital!');
+            }
+        }
+
+        function nextMission() {
+            alert('🚀 Em breve: "Como a IA Reconhece Seu Rosto" - Uma nova jornada te espera!');
+        }
+
+        // Easter egg detector
+        document.getElementById('easterEgg1').addEventListener('click', function() {
+            alert('🕵️ Easter Egg encontrado! +50 pontos de bônus!\n\nSegredo revelado: Existem mais de 2 bilhões de dispositivos usando criptografia AES-256 neste momento!');
+            addPoints(50);
+        });
+
+        // Scroll tracking para gamificação
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            
+            if (scrollPercent > 20 && currentSection < 2) {
+                currentSection = 2;
+                updateProgress();
+            }
+            if (scrollPercent > 40 && currentSection < 3) {
+                currentSection = 3;
+                updateProgress();
+            }
+            if (scrollPercent > 60 && currentSection < 4) {
+                currentSection = 4;
+                updateProgress();
+            }
+            if (scrollPercent > 80 && currentSection < 5) {
+                currentSection = 5;
+                updateProgress();
+            }
+        });
+
+        // Inicializa
+        updateProgress();
+    </script>
+</body>
+</html>
