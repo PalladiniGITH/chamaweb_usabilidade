@@ -53,43 +53,79 @@
             <p class="mission-intro">Aqui as mensagens usam duas chaves diferentes: uma pode ser compartilhada publicamente e a outra fica guardada só com você. Veja como esse dueto impede invasores de lerem o conteúdo.</p>
             <div class="mission-content asymmetric">
                 <div id="asymmetricIllustration" class="asymmetric-illustration" data-state="public">
-                    <svg viewBox="0 0 360 220" role="img" aria-labelledby="tituloAssimetrica" aria-describedby="descricaoAssimetrica">
+                    <svg viewBox="0 0 380 240" role="img" aria-labelledby="tituloAssimetrica" aria-describedby="descricaoAssimetrica">
                         <title id="tituloAssimetrica">Fluxo da criptografia assimétrica</title>
-                        <desc id="descricaoAssimetrica">Uma pessoa envia uma mensagem trancada com a chave pública, que percorre um caminho colorido até o destinatário. Somente a chave privada abre o cadeado final.</desc>
+                        <desc id="descricaoAssimetrica">As mensagens saem do remetente trancadas com a chave pública, passam por curiosos que só veem códigos e são destrancadas com a chave privada ao chegar no contato.</desc>
                         <defs>
-                            <linearGradient id="pathGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                            <linearGradient id="publicGradient" x1="0%" y1="50%" x2="100%" y2="50%">
                                 <stop offset="0%" stop-color="#8ec5fc"></stop>
-                                <stop offset="50%" stop-color="#e0c3fc"></stop>
-                                <stop offset="100%" stop-color="#f093fb"></stop>
+                                <stop offset="100%" stop-color="#a1c4fd"></stop>
                             </linearGradient>
+                            <linearGradient id="privateGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                                <stop offset="0%" stop-color="#fbc2eb"></stop>
+                                <stop offset="100%" stop-color="#a6c1ee"></stop>
+                            </linearGradient>
+                            <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                                <path d="M0 0 L6 3 L0 6 Z" fill="currentColor"></path>
+                            </marker>
                         </defs>
-                        <g class="avatar avatar-sender">
-                            <circle cx="52" cy="60" r="32" class="avatar-ring"></circle>
-                            <text x="52" y="64" text-anchor="middle" class="avatar-emoji" aria-hidden="true">👩‍💻</text>
-                            <text x="52" y="118" text-anchor="middle" class="avatar-label">Você</text>
+                        <g class="actor actor-sender">
+                            <circle cx="60" cy="76" r="36" class="actor-ring"></circle>
+                            <text x="60" y="82" text-anchor="middle" class="actor-emoji" aria-hidden="true">👩‍💻</text>
+                            <text x="60" y="132" text-anchor="middle" class="actor-label">Você</text>
                         </g>
-                        <g class="avatar avatar-receiver">
-                            <circle cx="308" cy="60" r="32" class="avatar-ring"></circle>
-                            <text x="308" y="64" text-anchor="middle" class="avatar-emoji" aria-hidden="true">📱</text>
-                            <text x="308" y="118" text-anchor="middle" class="avatar-label">Contato</text>
+                        <g class="actor actor-receiver">
+                            <circle cx="320" cy="76" r="36" class="actor-ring"></circle>
+                            <text x="320" y="82" text-anchor="middle" class="actor-emoji" aria-hidden="true">📱</text>
+                            <text x="320" y="132" text-anchor="middle" class="actor-label">Contato</text>
                         </g>
-                        <g class="public-key-group">
-                            <rect x="132" y="28" width="84" height="44" rx="12" class="key-card"></rect>
-                            <text x="174" y="56" text-anchor="middle" class="key-label">Chave pública</text>
-                            <path class="message-path" d="M84 60 C140 8 220 112 276 60" stroke="url(#pathGradient)" stroke-width="6" fill="none" stroke-linecap="round"></path>
-                            <g class="message-envelope">
-                                <rect x="150" y="82" width="60" height="38" rx="8"></rect>
-                                <polyline points="150,82 180,102 210,82" fill="none" stroke-width="3"></polyline>
+                        <g class="key-card public-card">
+                            <rect x="142" y="18" width="96" height="48" rx="14"></rect>
+                            <text x="190" y="48" text-anchor="middle">Chave pública</text>
+                        </g>
+                        <g class="key-card private-card">
+                            <rect x="142" y="172" width="110" height="52" rx="16"></rect>
+                            <text x="197" y="204" text-anchor="middle">Chave privada</text>
+                        </g>
+                        <g class="public-flow">
+                            <path class="flow-line" d="M96 88 C150 28 230 28 284 88" stroke="url(#publicGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
+                            <g class="message-card message-card--locked" transform="translate(150,64)">
+                                <rect class="message-bg" x="0" y="0" width="90" height="54" rx="16"></rect>
+                                <polyline class="message-flap" points="0,0 45,28 90,0" fill="none"></polyline>
+                                <text x="45" y="34" text-anchor="middle" class="message-text message-text--cipher">010101</text>
+                                <g class="mini-lock mini-lock--closed" transform="translate(62,8)">
+                                    <rect width="18" height="18" rx="6"></rect>
+                                    <path d="M3 6 v-5 a6 6 0 0 1 12 0 v5" fill="none"></path>
+                                </g>
+                            </g>
+                            <text x="190" y="58" text-anchor="middle" class="flow-caption">Mensagem sai trancada</text>
+                        </g>
+                        <g class="asymmetric-spy">
+                            <circle cx="190" cy="124" r="20"></circle>
+                            <text x="190" y="130" text-anchor="middle" class="spy-emoji" aria-hidden="true">👀</text>
+                            <g class="spy-bubble" transform="translate(160,146)">
+                                <rect width="60" height="32" rx="10"></rect>
+                                <text x="30" y="20" text-anchor="middle" class="spy-text spy-text--cipher">???</text>
                             </g>
                         </g>
-                        <g class="private-key-group">
-                            <rect x="132" y="148" width="96" height="48" rx="12" class="key-card"></rect>
-                            <text x="180" y="178" text-anchor="middle" class="key-label">Chave privada</text>
-                            <g class="lock-group">
-                                <rect x="252" y="156" width="44" height="38" rx="8"></rect>
-                                <path d="M264 156 v-12 a12 12 0 0 1 24 0 v12" fill="none" stroke-width="4"></path>
-                                <circle cx="274" cy="176" r="5"></circle>
+                        <g class="private-flow">
+                            <path class="flow-line" d="M100 148 C162 208 236 208 296 152" stroke="url(#privateGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
+                            <g class="message-card message-card--unlocked" transform="translate(158,150)">
+                                <rect class="message-bg" x="0" y="0" width="90" height="54" rx="16"></rect>
+                                <polyline class="message-flap" points="0,0 45,28 90,0" fill="none"></polyline>
+                                <text x="45" y="30" text-anchor="middle" class="message-text message-text--cipher">010101</text>
+                                <text x="45" y="38" text-anchor="middle" class="message-text message-text--plain">Olá!</text>
+                                <g class="mini-lock mini-lock--open" transform="translate(10,8)">
+                                    <rect width="18" height="18" rx="6"></rect>
+                                    <path d="M3 8 v-5 a6 6 0 0 1 12 0" fill="none"></path>
+                                </g>
+                                <g class="mini-key" transform="translate(60,30)">
+                                    <circle cx="6" cy="6" r="6"></circle>
+                                    <rect x="8" y="5" width="14" height="4" rx="2"></rect>
+                                    <rect x="20" y="5" width="6" height="4" rx="2"></rect>
+                                </g>
                             </g>
+                            <text x="212" y="214" text-anchor="middle" class="flow-caption">Só a chave privada revela o texto</text>
                         </g>
                     </svg>
                 </div>

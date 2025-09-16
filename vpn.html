@@ -75,13 +75,15 @@
                         <g class="vpn-tunnel">
                             <rect x="110" y="92" width="180" height="52" rx="26" fill="url(#tunnelGradient)"></rect>
                             <rect x="122" y="104" width="156" height="28" rx="14"></rect>
-                            <g class="data-packet">
-                                <rect x="142" y="112" width="28" height="16" rx="6"></rect>
-                                <text x="156" y="124" text-anchor="middle">1010</text>
+                            <g class="data-packet" transform="translate(142,112)">
+                                <rect width="46" height="20" rx="8"></rect>
+                                <text x="23" y="14" text-anchor="middle" class="packet-text packet-text--secure">0101</text>
+                                <text x="23" y="14" text-anchor="middle" class="packet-text packet-text--plain">Senha123</text>
                             </g>
-                            <g class="data-packet" transform="translate(56,0)">
-                                <rect x="142" y="112" width="28" height="16" rx="6"></rect>
-                                <text x="156" y="124" text-anchor="middle">0011</text>
+                            <g class="data-packet" transform="translate(202,112)">
+                                <rect width="46" height="20" rx="8"></rect>
+                                <text x="23" y="14" text-anchor="middle" class="packet-text packet-text--secure">0011</text>
+                                <text x="23" y="14" text-anchor="middle" class="packet-text packet-text--plain">Mensagem</text>
                             </g>
                         </g>
                         <g class="vpn-server">
@@ -95,12 +97,22 @@
                             <path d="M102 180 h20 v24 h-20 z"></path>
                             <circle cx="108" cy="166" r="2"></circle>
                             <circle cx="116" cy="166" r="2"></circle>
+                            <g class="spy-callout" transform="translate(72,148)">
+                                <rect width="78" height="28" rx="10"></rect>
+                                <text x="39" y="18" text-anchor="middle" class="spy-callout-text spy-callout-text--plain">Senha 123</text>
+                                <text x="39" y="18" text-anchor="middle" class="spy-callout-text spy-callout-text--cipher">???</text>
+                            </g>
                         </g>
                         <g class="vpn-spy spy-right">
                             <circle cx="260" cy="170" r="10"></circle>
                             <path d="M250 180 h20 v24 h-20 z"></path>
                             <circle cx="254" cy="166" r="2"></circle>
                             <circle cx="262" cy="166" r="2"></circle>
+                            <g class="spy-callout" transform="translate(264,148)">
+                                <rect width="76" height="28" rx="10"></rect>
+                                <text x="38" y="18" text-anchor="middle" class="spy-callout-text spy-callout-text--plain">Vejo tudo</text>
+                                <text x="38" y="18" text-anchor="middle" class="spy-callout-text spy-callout-text--cipher">???</text>
+                            </g>
                         </g>
                     </svg>
                 </div>

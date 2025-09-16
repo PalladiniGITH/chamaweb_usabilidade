@@ -582,7 +582,20 @@ img, svg {
     border-radius: var(--radius-medium);
     background: var(--color-surface-soft);
     border: 1px solid var(--color-border);
-    animation: panelFade 0.4s ease;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hidden-panel[hidden] {
+    display: none;
+}
+
+.hidden-panel.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .panel-highlight {
@@ -590,17 +603,6 @@ img, svg {
     padding: 0.75rem 1rem;
     border-radius: var(--radius-small);
     font-weight: 600;
-}
-
-@keyframes panelFade {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* ===========================================================================
@@ -678,62 +680,146 @@ img, svg {
     width: 100%;
 }
 
-.avatar-ring {
+.asymmetric-illustration svg text {
+    fill: var(--color-text);
+    font-size: 0.9rem;
+}
+
+.actor-ring {
     fill: var(--color-surface);
-    stroke: rgba(97, 87, 255, 0.25);
+    stroke: rgba(97, 87, 255, 0.28);
     stroke-width: 3;
 }
 
-.avatar-label {
-    font-size: 0.92rem;
-    fill: var(--color-text);
+.actor-emoji {
+    font-size: 1.4rem;
 }
 
-.key-card {
+.actor-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.key-card rect {
     fill: var(--color-surface);
-    stroke: rgba(97, 87, 255, 0.3);
+    stroke: rgba(97, 87, 255, 0.35);
     stroke-width: 2;
 }
 
-.key-label {
+.key-card text {
     fill: var(--color-text);
     font-size: 0.82rem;
 }
 
-.message-path {
-    stroke-dasharray: 12 8;
+.flow-line {
+    transition: opacity 0.35s ease;
 }
 
-.message-envelope rect {
-    fill: rgba(97, 87, 255, 0.1);
-    stroke: rgba(97, 87, 255, 0.4);
+.message-card {
+    transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-.message-envelope polyline {
-    stroke: rgba(97, 87, 255, 0.4);
+.message-bg {
+    fill: var(--color-surface);
+    stroke: rgba(97, 87, 255, 0.25);
+    stroke-width: 2;
 }
 
-.lock-group rect,
-.lock-group path,
-.lock-group circle {
-    stroke: rgba(240, 147, 251, 0.8);
-    fill: rgba(240, 147, 251, 0.18);
+.message-flap {
+    stroke: rgba(97, 87, 255, 0.28);
+    stroke-width: 2;
 }
 
-.asymmetric-illustration[data-state="public"] .public-key-group {
-    filter: drop-shadow(0 0 12px rgba(97, 87, 255, 0.3));
+.message-text {
+    font-size: 0.82rem;
+    fill: var(--color-text);
 }
 
-.asymmetric-illustration[data-state="public"] .message-path {
-    stroke-opacity: 1;
+.message-text--cipher {
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.08em;
 }
 
-.asymmetric-illustration[data-state="private"] .private-key-group {
-    filter: drop-shadow(0 0 14px rgba(240, 147, 251, 0.4));
+.message-text--plain {
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
-.asymmetric-illustration[data-state="private"] .lock-group rect {
-    fill: rgba(240, 147, 251, 0.35);
+.mini-lock rect {
+    fill: rgba(97, 87, 255, 0.16);
+    stroke: rgba(97, 87, 255, 0.5);
+    stroke-width: 2;
+}
+
+.mini-lock path {
+    stroke: rgba(97, 87, 255, 0.65);
+    stroke-width: 2;
+}
+
+.mini-lock--open path {
+    stroke: rgba(240, 147, 251, 0.75);
+}
+
+.mini-key circle,
+.mini-key rect {
+    fill: rgba(240, 147, 251, 0.45);
+}
+
+.flow-caption {
+    fill: var(--color-text-soft);
+    font-size: 0.78rem;
+}
+
+.asymmetric-spy circle {
+    fill: rgba(97, 87, 255, 0.08);
+    stroke: rgba(97, 87, 255, 0.25);
+    stroke-width: 2;
+}
+
+.spy-emoji {
+    font-size: 1.1rem;
+}
+
+.spy-bubble rect {
+    fill: rgba(97, 87, 255, 0.12);
+    stroke: rgba(97, 87, 255, 0.3);
+    stroke-width: 1.5;
+}
+
+.spy-text {
+    fill: var(--color-text);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+}
+
+.public-flow,
+.private-flow {
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+.asymmetric-illustration[data-state="public"] .public-flow {
+    opacity: 1;
+}
+
+.asymmetric-illustration[data-state="public"] .public-card rect {
+    filter: drop-shadow(0 0 12px rgba(97, 87, 255, 0.35));
+}
+
+.asymmetric-illustration[data-state="private"] .private-flow {
+    opacity: 1;
+}
+
+.asymmetric-illustration[data-state="private"] .private-card rect {
+    filter: drop-shadow(0 0 14px rgba(240, 147, 251, 0.35));
+}
+
+.asymmetric-illustration[data-state="private"] .message-card--unlocked .message-text--plain {
+    opacity: 1;
+}
+
+.asymmetric-illustration[data-state="private"] .message-card--unlocked .message-text--cipher {
+    opacity: 0;
 }
 
 .asymmetric-controls {
@@ -888,6 +974,60 @@ img, svg {
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.packet-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    fill: var(--color-text);
+    transition: opacity 0.3s ease;
+}
+
+.packet-text--plain {
+    opacity: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    fill: rgba(243, 96, 96, 0.9);
+}
+
+.vpn-illustration[data-state="open"] .packet-text--plain {
+    opacity: 1;
+}
+
+.vpn-illustration[data-state="open"] .packet-text--secure {
+    opacity: 0;
+}
+
+.spy-callout rect {
+    fill: rgba(97, 87, 255, 0.12);
+    stroke: rgba(97, 87, 255, 0.25);
+    stroke-width: 1.5;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.spy-callout-text {
+    fill: var(--color-text);
+    font-size: 0.72rem;
+    transition: opacity 0.3s ease;
+}
+
+.spy-callout-text--plain {
+    opacity: 0;
+    font-weight: 600;
+    fill: rgba(243, 96, 96, 0.9);
+}
+
+.vpn-illustration[data-state="open"] .spy-callout rect {
+    fill: rgba(243, 96, 96, 0.18);
+    stroke: rgba(243, 96, 96, 0.45);
+}
+
+.vpn-illustration[data-state="open"] .spy-callout-text--plain {
+    opacity: 1;
+}
+
+.vpn-illustration[data-state="open"] .spy-callout-text--cipher {
+    opacity: 0;
 }
 
 /* ===========================================================================

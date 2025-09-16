@@ -170,16 +170,31 @@ const SegredosDigitais = (() => {
     if (!button || !secrets) return;
 
     const label = button.querySelector('.lock-label');
+    let hideTimeout;
 
     button.addEventListener('click', () => {
       const isOpen = button.classList.toggle('is-open');
       button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      secrets.hidden = !isOpen;
+
       if (label) {
         label.textContent = isOpen ? 'Fechar o cofre' : 'Abrir o cofre';
       }
+
       if (isOpen) {
+        window.clearTimeout(hideTimeout);
+        secrets.hidden = false;
+        secrets.setAttribute('aria-hidden', 'false');
+        secrets.classList.remove('is-visible');
+        // Recalcula o layout para reiniciar a animação quando reabrir o cofre.
+        void secrets.offsetWidth;
+        secrets.classList.add('is-visible');
         markMissionComplete('cofre', 10);
+      } else {
+        secrets.classList.remove('is-visible');
+        secrets.setAttribute('aria-hidden', 'true');
+        hideTimeout = window.setTimeout(() => {
+          secrets.hidden = true;
+        }, 220);
       }
     });
   };
