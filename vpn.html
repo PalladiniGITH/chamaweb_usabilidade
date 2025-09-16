@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missão Túnel VPN da jornada Segredos Digitais: entenda como uma VPN cria um túnel seguro em redes inseguras.">
+    <title>Missão Túnel VPN | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="vpn">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 05</p>
+                <h1>Túnel VPN</h1>
+            </header>
+            <p class="mission-intro">Uma VPN cria um túnel digital que protege seu tráfego em redes Wi-Fi abertas. Veja a diferença entre navegar exposto e navegar dentro do túnel seguro.</p>
+            <div class="mission-content vpn">
+                <div id="vpnIllustration" class="vpn-illustration" data-state="secure">
+                    <svg viewBox="0 0 360 220" role="img" aria-labelledby="tituloVpn" aria-describedby="descricaoVpn">
+                        <title id="tituloVpn">Túnel VPN protegendo dados</title>
+                        <desc id="descricaoVpn">Um smartphone envia dados através de um túnel roxo até um servidor seguro, enquanto espiões ficam do lado de fora.</desc>
+                        <defs>
+                            <linearGradient id="tunnelGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                                <stop offset="0%" stop-color="#a18cd1"></stop>
+                                <stop offset="100%" stop-color="#fbc2eb"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g class="vpn-phone">
+                            <rect x="24" y="70" width="56" height="96" rx="12"></rect>
+                            <rect x="32" y="82" width="40" height="64" rx="8"></rect>
+                            <circle cx="52" cy="156" r="4"></circle>
+                        </g>
+                        <g class="vpn-wifi">
+                            <path d="M64 60 q40 -40 80 0" fill="none" stroke-width="4"></path>
+                            <path d="M72 68 q32 -32 64 0" fill="none" stroke-width="4"></path>
+                            <circle cx="116" cy="76" r="4"></circle>
+                        </g>
+                        <g class="vpn-tunnel">
+                            <rect x="110" y="92" width="180" height="52" rx="26" fill="url(#tunnelGradient)"></rect>
+                            <rect x="122" y="104" width="156" height="28" rx="14"></rect>
+                            <g class="data-packet">
+                                <rect x="142" y="112" width="28" height="16" rx="6"></rect>
+                                <text x="156" y="124" text-anchor="middle">1010</text>
+                            </g>
+                            <g class="data-packet" transform="translate(56,0)">
+                                <rect x="142" y="112" width="28" height="16" rx="6"></rect>
+                                <text x="156" y="124" text-anchor="middle">0011</text>
+                            </g>
+                        </g>
+                        <g class="vpn-server">
+                            <rect x="300" y="72" width="40" height="88" rx="10"></rect>
+                            <circle cx="320" cy="92" r="6"></circle>
+                            <circle cx="320" cy="116" r="6"></circle>
+                            <circle cx="320" cy="140" r="6"></circle>
+                        </g>
+                        <g class="vpn-spy spy-left">
+                            <circle cx="112" cy="170" r="10"></circle>
+                            <path d="M102 180 h20 v24 h-20 z"></path>
+                            <circle cx="108" cy="166" r="2"></circle>
+                            <circle cx="116" cy="166" r="2"></circle>
+                        </g>
+                        <g class="vpn-spy spy-right">
+                            <circle cx="260" cy="170" r="10"></circle>
+                            <path d="M250 180 h20 v24 h-20 z"></path>
+                            <circle cx="254" cy="166" r="2"></circle>
+                            <circle cx="262" cy="166" r="2"></circle>
+                        </g>
+                    </svg>
+                </div>
+                <div class="vpn-controls" role="group" aria-label="Alternar modo da navegação">
+                    <button class="secondary-button" type="button" data-mode="open">Sem VPN</button>
+                    <button class="secondary-button" type="button" data-mode="secure">Com VPN</button>
+                </div>
+                <p id="vpnDescription" class="mission-detail">Com VPN: seu tráfego passa dentro do túnel cifrado. Os curiosos do Wi-Fi só veem números embaralhados.</p>
+            </div>
+            <aside class="mission-aside">
+                <h2>Use VPN quando...</h2>
+                <ul>
+                    <li>Estiver em aeroportos, cafés ou hotéis com Wi-Fi aberto.</li>
+                    <li>Quiser acessar dados do trabalho com segurança.</li>
+                    <li>Precisar evitar que o provedor veja todo o seu histórico.</li>
+                </ul>
+            </aside>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="https.html">← Missão anterior</a>
+            <a class="nav-link next" href="guardiao.html">Próxima missão →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Lembre-se: VPN não substitui antivírus e senhas fortes — ela é mais uma camada de proteção.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

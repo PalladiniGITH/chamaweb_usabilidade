@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missão Linguagem Secreta da jornada Segredos Digitais: transforme mensagens em código e entenda criptografia.">
+    <title>Missão Linguagem Secreta | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="linguagem">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 02</p>
+                <h1>A Linguagem Secreta</h1>
+            </header>
+            <p class="mission-intro">Criptografar é transformar palavras legíveis em códigos que parecem indecifráveis. Experimente enviar uma mensagem através do tradutor abaixo para sentir como é falar em “binário”.</p>
+            <div class="mission-content">
+                <form id="cipherForm" class="cipher-form" autocomplete="off">
+                    <label class="sr-only" for="messageInput">Digite uma mensagem para ser criptografada</label>
+                    <input id="messageInput" class="cipher-input" type="text" name="mensagem" maxlength="80" placeholder="Digite uma mensagem secreta" aria-describedby="cipherHint">
+                    <button id="encryptButton" class="primary-button" type="submit">🔐 Transformar em código</button>
+                    <p id="cipherHint" class="form-hint">Dica: tente com emojis ou acentos também.</p>
+                </form>
+                <div class="cipher-output" aria-live="polite" role="status">
+                    <p class="output-label">Código gerado</p>
+                    <pre id="encryptedOutput" class="output-area" tabindex="0"></pre>
+                </div>
+            </div>
+            <aside class="mission-aside">
+                <h2>Por que isso importa?</h2>
+                <ul>
+                    <li>Mensagens criptografadas parecem gibberish para qualquer pessoa sem a chave.</li>
+                    <li>Aplicativos como WhatsApp usam criptografia ponta a ponta para impedir interceptações.</li>
+                    <li>A mensagem só volta ao formato legível quando chega ao celular certo.</li>
+                </ul>
+            </aside>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="cofre.html">← Missão anterior</a>
+            <a class="nav-link next" href="criptografia-assimetrica.html">Próxima missão →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Fique atento: senhas curtas e fáceis de adivinhar tornam a criptografia menos eficiente.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

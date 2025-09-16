@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missão HTTPS x HTTP da jornada Segredos Digitais: entenda como identificar conexões seguras na web.">
+    <title>Missão HTTPS x HTTP | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="https">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 04</p>
+                <h1>HTTPS x HTTP</h1>
+            </header>
+            <p class="mission-intro">O cadeado na barra do navegador não é enfeite. Ele indica que a página usa HTTPS — uma conexão criptografada. Compare os dois cenários:</p>
+            <div class="mission-content protocol-compare">
+                <article class="protocol-card secure" aria-label="Exemplo de site HTTPS">
+                    <h2>🔒 HTTPS seguro</h2>
+                    <ul>
+                        <li>Canal criptografado entre você e o site.</li>
+                        <li>Certificado digital válido emitido por uma autoridade confiável.</li>
+                        <li>Endereço começa com <code>https://</code>.</li>
+                        <li>Protege dados pessoais, senhas e pagamento.</li>
+                    </ul>
+                </article>
+                <article class="protocol-card insecure" aria-label="Exemplo de site HTTP">
+                    <h2>⚠️ HTTP inseguro</h2>
+                    <ul>
+                        <li>Dados viajam sem criptografia.</li>
+                        <li>Facilita ataques do tipo <em>man-in-the-middle</em>.</li>
+                        <li>Endereço começa com <code>http://</code>.</li>
+                        <li>Evite informar senhas ou cartões.</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="mission-detail protocol-tip">
+                <svg class="address-bar" viewBox="0 0 420 80" role="img" aria-labelledby="tituloBarra" aria-describedby="descricaoBarra">
+                    <title id="tituloBarra">Barra de endereço destacando HTTPS</title>
+                    <desc id="descricaoBarra">Uma barra de navegador com cadeado verde, endereço https e status seguro.</desc>
+                    <rect x="6" y="8" width="408" height="64" rx="16"></rect>
+                    <g class="address-lock">
+                        <rect x="32" y="26" width="40" height="30" rx="8"></rect>
+                        <path d="M42 26 v-10 a12 12 0 0 1 24 0 v10" fill="none" stroke-width="4"></path>
+                        <circle cx="52" cy="42" r="4"></circle>
+                    </g>
+                    <text x="96" y="48" class="address-text">https://seusite.com</text>
+                    <text x="324" y="48" class="status-text">Conexão segura</text>
+                </svg>
+                <p>Use o cadeado + o <code>https</code> como checklist rápido antes de colocar dados sensíveis em um site.</p>
+            </div>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="criptografia-assimetrica.html">← Missão anterior</a>
+            <a class="nav-link next" href="vpn.html">Próxima missão →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Dica: em redes Wi-Fi públicas, priorize sites com HTTPS — eles protegem seus dados mesmo em ambientes inseguros.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

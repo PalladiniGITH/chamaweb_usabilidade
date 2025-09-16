@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missão Cofre Invisível da jornada Segredos Digitais: descubra como seu celular protege dados com criptografia.">
+    <title>Missão Cofre Invisível | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="cofre">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 01</p>
+                <h1>O Cofre Invisível</h1>
+            </header>
+            <p class="mission-intro">Seu smartphone protege automaticamente centenas de informações pessoais por dia. Toque no cadeado abaixo para revelar o que fica trancado e por quê.</p>
+            <div class="mission-content lock-mission">
+                <button id="cofreTrigger" class="lock-button" type="button" aria-controls="cofreSecrets" aria-expanded="false">
+                    <span class="lock-shape" aria-hidden="true">
+                        <span class="lock-body"></span>
+                        <span class="lock-shackle"></span>
+                    </span>
+                    <span class="lock-label">Abrir o cofre</span>
+                </button>
+                <div class="lock-explanation">
+                    <p>Por trás do cadeado existem chaves digitais criadas por criptografia. Elas funcionam como senhas gigantes, muito maiores que qualquer senha humana conseguiria decorar.</p>
+                    <div id="cofreSecrets" class="hidden-panel" hidden>
+                        <p class="panel-highlight">🎯 <strong>Revelação:</strong> esse cofre digital protege automaticamente:</p>
+                        <ul>
+                            <li>📸 Fotos e vídeos que contam quem você é.</li>
+                            <li>💬 Conversas de aplicativos, mesmo quando apagadas da tela.</li>
+                            <li>💳 Cartões salvos em apps de pagamento.</li>
+                            <li>📍 Histórico de localização e rotinas.</li>
+                            <li>🔍 Pesquisas e hábitos digitais.</li>
+                        </ul>
+                        <p>Quando uma chave correta é usada, o cadeado se abre por alguns segundos e fecha novamente — exatamente como acontece no seu celular.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="index.html">← Voltar ao mapa</a>
+            <a class="nav-link next" href="linguagem.html">Próxima missão →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Dica: mantenha senha e biometria ativadas para o cadeado virtual continuar blindado.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

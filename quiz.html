@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz final da jornada Segredos Digitais: responda perguntas sobre criptografia e desbloqueie o nível extra.">
+    <title>Quiz Final | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="quiz">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 08</p>
+                <h1>Quiz final</h1>
+            </header>
+            <p class="mission-intro">Responda as três perguntas para consolidar o que aprendeu. Se acertar tudo, um nível extra aparece para você compartilhar com amigos!</p>
+            <form id="quizForm" class="quiz-form">
+                <fieldset>
+                    <legend>1. O que é criptografia de ponta a ponta?</legend>
+                    <label><input type="radio" name="q1" value="a"> Uma forma de salvar senhas na nuvem automaticamente.</label>
+                    <label><input type="radio" name="q1" value="b"> Um método em que apenas quem envia e recebe consegue ler a mensagem.</label>
+                    <label><input type="radio" name="q1" value="c"> Um aplicativo pago que substitui antivírus.</label>
+                </fieldset>
+                <fieldset>
+                    <legend>2. HTTPS é seguro mesmo?</legend>
+                    <label><input type="radio" name="q2" value="a"> Sim, pois adiciona criptografia e certificado para validar o site.</label>
+                    <label><input type="radio" name="q2" value="b"> Não, é igual ao HTTP tradicional.</label>
+                    <label><input type="radio" name="q2" value="c"> Só quando usado com uma VPN.</label>
+                </fieldset>
+                <fieldset>
+                    <legend>3. Para que serve uma VPN?</legend>
+                    <label><input type="radio" name="q3" value="a"> Aumentar a velocidade da internet.</label>
+                    <label><input type="radio" name="q3" value="b"> Criar um túnel seguro em redes inseguras.</label>
+                    <label><input type="radio" name="q3" value="c"> Desbloquear qualquer celular sem senha.</label>
+                </fieldset>
+                <button class="primary-button" type="submit">Enviar respostas</button>
+            </form>
+            <div id="quizResult" class="quiz-result" role="status" aria-live="polite"></div>
+            <div id="extraLevel" class="extra-level" hidden>
+                <h2>🌟 Nível Extra</h2>
+                <p>Parabéns! Você gabaritou o quiz. Compartilhe o link da jornada com alguém que precise aprender sobre criptografia e segurança digital.</p>
+                <p class="extra-share">Link sugerido: <a href="index.html">segredos-digitais</a></p>
+            </div>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="certificado.html">← Missão anterior</a>
+            <a class="nav-link next" href="index.html">Voltar ao mapa →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Continue praticando: revise as missões ou convide alguém para explorar a jornada.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1262 @@
+/* ===========================================================================
+   Segredos Digitais - estilos globais
+   ======================================================================== */
+:root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    --color-bg: #f7f8ff;
+    --color-surface: #ffffff;
+    --color-surface-soft: #eef0ff;
+    --color-text: #1b1c33;
+    --color-text-soft: #44486a;
+    --color-accent: #6157ff;
+    --color-accent-strong: #4b40cc;
+    --color-accent-soft: rgba(97, 87, 255, 0.12);
+    --color-border: rgba(44, 54, 123, 0.1);
+    --color-success: #2bb673;
+    --color-warning: #f9a826;
+    --shadow-soft: 0 12px 28px rgba(38, 41, 89, 0.08);
+    --radius-large: 24px;
+    --radius-medium: 18px;
+    --radius-small: 12px;
+    --transition: 0.35s ease;
+}
+
+[data-theme="dark"] {
+    --color-bg: #111323;
+    --color-surface: #171a2c;
+    --color-surface-soft: #1f2338;
+    --color-text: #f7f8ff;
+    --color-text-soft: #c9cbe7;
+    --color-accent: #8c7bff;
+    --color-accent-strong: #a094ff;
+    --color-accent-soft: rgba(140, 123, 255, 0.18);
+    --color-border: rgba(203, 205, 237, 0.12);
+    --shadow-soft: 0 18px 36px rgba(6, 9, 27, 0.45);
+}
+
+/* ===========================================================================
+   Reset básico e tipografia
+   ======================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background: radial-gradient(circle at top, rgba(97, 87, 255, 0.08), transparent 55%) var(--color-bg);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+main, section, article {
+    position: relative;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-accent);
+}
+
+p {
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+code, pre {
+    font-family: var(--font-mono);
+}
+
+ul, ol {
+    padding-left: 1.2rem;
+}
+
+button {
+    font: inherit;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===========================================================================
+   Acessibilidade e utilidades
+   ======================================================================== */
+.skip-link {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    top: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-small);
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+
+.skip-link:focus {
+    transform: translate(-50%, 0);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===========================================================================
+   Cabeçalho e navegação
+   ======================================================================== */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem clamp(1rem, 4vw, 3rem) 1rem;
+    gap: 1.5rem;
+}
+
+.brand-link {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+}
+
+.brand-tagline {
+    margin: 0.1rem 0 0;
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.knowledge-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    font-weight: 600;
+}
+
+.counter-icon {
+    font-size: 1.1rem;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+    font-size: 1.2rem;
+}
+
+.link-button {
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    background: var(--color-surface);
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.link-button:hover,
+.link-button:focus {
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1.5rem 1.25rem;
+    overflow-x: auto;
+}
+
+.site-nav a {
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid transparent;
+    color: var(--color-text-soft);
+    font-weight: 600;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.site-nav a.is-active,
+.site-nav a[aria-current="page"] {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* ===========================================================================
+   Layout principal
+   ======================================================================== */
+.site-main {
+    width: min(980px, 100% - 3rem);
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+    flex: 1;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--color-text-soft);
+    font-size: 0.95rem;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+}
+
+.hero {
+    background: var(--color-surface);
+    border-radius: var(--radius-large);
+    padding: clamp(2rem, 5vw, 4rem);
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+}
+
+.hero-overline,
+.section-overline,
+.mission-overline {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--color-text-soft);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-lead {
+    font-size: 1.1rem;
+    color: var(--color-text-soft);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* ===========================================================================
+   Botões principais
+   ======================================================================== */
+.primary-button,
+.secondary-button,
+.ghost-button {
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.primary-button {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+    color: #fff;
+    box-shadow: 0 14px 24px rgba(97, 87, 255, 0.25);
+}
+
+.primary-button:hover,
+.primary-button:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 32px rgba(97, 87, 255, 0.3);
+}
+
+.secondary-button {
+    background: var(--color-surface-soft);
+    color: var(--color-text);
+    border: 1px solid transparent;
+}
+
+.secondary-button.is-active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(97, 87, 255, 0.14);
+    box-shadow: 0 10px 20px rgba(97, 87, 255, 0.18);
+}
+
+.secondary-button:hover,
+.secondary-button:focus {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.ghost-button {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.ghost-button:hover,
+.ghost-button:focus {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.3rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    background: var(--color-surface);
+}
+
+.nav-link.next {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+    color: #fff;
+    border-color: transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    border-color: var(--color-accent);
+}
+
+.nav-link.next:hover,
+.nav-link.next:focus {
+    box-shadow: 0 10px 26px rgba(97, 87, 255, 0.25);
+}
+
+/* ===========================================================================
+   Cartões de missão na página inicial
+   ======================================================================== */
+.mission-grid {
+    margin-top: 3rem;
+}
+
+.mission-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mission-card {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-medium);
+    padding: 1.75rem 1.5rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    border: 1px solid transparent;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.mission-card:hover,
+.mission-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 38px rgba(50, 44, 112, 0.18);
+    border-color: rgba(97, 87, 255, 0.2);
+}
+
+.mission-card.is-completed::after {
+    content: '✔ Missão concluída';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-success);
+    background: rgba(43, 182, 115, 0.12);
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+}
+
+.mission-icon {
+    font-size: 2rem;
+}
+
+.card-link {
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* ===========================================================================
+   Estrutura das páginas de missão
+   ======================================================================== */
+.mission {
+    background: var(--color-surface);
+    border-radius: var(--radius-large);
+    padding: clamp(2rem, 4vw, 3.5rem);
+    box-shadow: var(--shadow-soft);
+    display: grid;
+    gap: 2.5rem;
+}
+
+.mission-header h1 {
+    margin: 0.6rem 0 0;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+}
+
+.mission-intro {
+    color: var(--color-text-soft);
+    font-size: 1.05rem;
+}
+
+.mission-content {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.mission-aside {
+    background: var(--color-surface-soft);
+    border-radius: var(--radius-medium);
+    padding: 1.5rem 1.75rem;
+    border: 1px solid var(--color-border);
+}
+
+.mission-detail {
+    color: var(--color-text-soft);
+    font-size: 0.98rem;
+}
+
+.mission-pagination {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* ===========================================================================
+   Missão Cofre Invisível
+   ======================================================================== */
+.lock-mission {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.lock-button {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-medium);
+    background: radial-gradient(circle at top, rgba(97, 87, 255, 0.18), transparent 70%);
+    border: 1px solid rgba(97, 87, 255, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.lock-button:hover,
+.lock-button:focus {
+    transform: translateY(-4px);
+}
+
+.lock-shape {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.lock-body {
+    position: absolute;
+    inset: 48px 20px 0 20px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #5f2eea, #35a7ff);
+    box-shadow: inset 0 -4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.lock-shackle {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 8px;
+    border-radius: 28px 28px 18px 18px;
+    border: 6px solid rgba(255, 255, 255, 0.85);
+    border-bottom-width: 10px;
+    background: transparent;
+}
+
+.lock-button.is-open .lock-shackle {
+    animation: unlock 1.4s ease forwards;
+}
+
+@keyframes unlock {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    30% {
+        transform: translate(-30%, -10%) rotate(-24deg);
+    }
+    70% {
+        transform: translate(-30%, -10%) rotate(-24deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+.lock-label {
+    font-weight: 700;
+}
+
+.hidden-panel {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-medium);
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    animation: panelFade 0.4s ease;
+}
+
+.panel-highlight {
+    background: rgba(97, 87, 255, 0.12);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-small);
+    font-weight: 600;
+}
+
+@keyframes panelFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================================================
+   Missão Linguagem Secreta
+   ======================================================================== */
+.cipher-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.cipher-input {
+    padding: 1rem 1.2rem;
+    border-radius: var(--radius-small);
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+    background: var(--color-surface);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cipher-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(97, 87, 255, 0.15);
+    outline: none;
+}
+
+.form-hint {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-soft);
+}
+
+.cipher-output {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-medium);
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+}
+
+.output-label {
+    font-weight: 700;
+    margin: 0;
+}
+
+.output-area {
+    min-height: 80px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+}
+
+/* ===========================================================================
+   Missão Criptografia Assimétrica
+   ======================================================================== */
+.asymmetric {
+    display: grid;
+    gap: 1.75rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.asymmetric-illustration {
+    width: 100%;
+    max-width: 560px;
+    padding: 1.75rem;
+    border-radius: var(--radius-large);
+    background: radial-gradient(circle at top, rgba(97, 87, 255, 0.08), transparent 70%);
+    border: 1px solid rgba(97, 87, 255, 0.25);
+}
+
+.asymmetric-illustration svg {
+    width: 100%;
+}
+
+.avatar-ring {
+    fill: var(--color-surface);
+    stroke: rgba(97, 87, 255, 0.25);
+    stroke-width: 3;
+}
+
+.avatar-label {
+    font-size: 0.92rem;
+    fill: var(--color-text);
+}
+
+.key-card {
+    fill: var(--color-surface);
+    stroke: rgba(97, 87, 255, 0.3);
+    stroke-width: 2;
+}
+
+.key-label {
+    fill: var(--color-text);
+    font-size: 0.82rem;
+}
+
+.message-path {
+    stroke-dasharray: 12 8;
+}
+
+.message-envelope rect {
+    fill: rgba(97, 87, 255, 0.1);
+    stroke: rgba(97, 87, 255, 0.4);
+}
+
+.message-envelope polyline {
+    stroke: rgba(97, 87, 255, 0.4);
+}
+
+.lock-group rect,
+.lock-group path,
+.lock-group circle {
+    stroke: rgba(240, 147, 251, 0.8);
+    fill: rgba(240, 147, 251, 0.18);
+}
+
+.asymmetric-illustration[data-state="public"] .public-key-group {
+    filter: drop-shadow(0 0 12px rgba(97, 87, 255, 0.3));
+}
+
+.asymmetric-illustration[data-state="public"] .message-path {
+    stroke-opacity: 1;
+}
+
+.asymmetric-illustration[data-state="private"] .private-key-group {
+    filter: drop-shadow(0 0 14px rgba(240, 147, 251, 0.4));
+}
+
+.asymmetric-illustration[data-state="private"] .lock-group rect {
+    fill: rgba(240, 147, 251, 0.35);
+}
+
+.asymmetric-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===========================================================================
+   Missão HTTPS x HTTP
+   ======================================================================== */
+.protocol-compare {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.protocol-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-soft);
+    display: grid;
+    gap: 0.75rem;
+}
+
+.protocol-card.secure {
+    border-color: rgba(43, 182, 115, 0.2);
+    background: rgba(43, 182, 115, 0.08);
+}
+
+.protocol-card.insecure {
+    border-color: rgba(249, 168, 38, 0.25);
+    background: rgba(249, 168, 38, 0.08);
+}
+
+.protocol-card ul {
+    margin: 0;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.protocol-tip {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.75rem;
+    border-radius: var(--radius-medium);
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+}
+
+.address-bar {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.address-bar rect {
+    fill: var(--color-surface);
+    stroke: rgba(97, 87, 255, 0.2);
+    stroke-width: 2;
+}
+
+.address-lock rect {
+    fill: rgba(43, 182, 115, 0.2);
+    stroke: rgba(43, 182, 115, 0.5);
+    stroke-width: 2;
+}
+
+.address-lock path,
+.address-lock circle {
+    stroke: rgba(43, 182, 115, 0.8);
+    fill: rgba(43, 182, 115, 0.5);
+}
+
+.address-text {
+    fill: var(--color-text);
+    font-size: 0.92rem;
+}
+
+.status-text {
+    fill: var(--color-success);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* ===========================================================================
+   Missão VPN
+   ======================================================================== */
+.vpn {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.vpn-illustration {
+    width: 100%;
+    max-width: 560px;
+    padding: 1.5rem;
+    border-radius: var(--radius-large);
+    background: linear-gradient(180deg, rgba(97, 87, 255, 0.12), rgba(97, 87, 255, 0.02));
+    border: 1px solid rgba(97, 87, 255, 0.2);
+}
+
+.vpn-illustration svg rect,
+.vpn-illustration svg path,
+.vpn-illustration svg circle,
+.vpn-illustration svg text {
+    transition: fill 0.3s ease, stroke 0.3s ease, opacity 0.3s ease;
+}
+
+.vpn-illustration[data-state="open"] .vpn-tunnel rect:first-child {
+    fill: rgba(249, 168, 38, 0.2);
+}
+
+.vpn-illustration[data-state="open"] .vpn-tunnel rect:last-child {
+    fill: rgba(249, 168, 38, 0.08);
+    stroke: rgba(249, 168, 38, 0.5);
+}
+
+.vpn-illustration[data-state="open"] .data-packet rect {
+    fill: rgba(249, 168, 38, 0.25);
+}
+
+.vpn-illustration[data-state="open"] .vpn-spy circle,
+.vpn-illustration[data-state="open"] .vpn-spy path {
+    fill: rgba(243, 96, 96, 0.5);
+}
+
+.vpn-illustration[data-state="secure"] .data-packet rect,
+.vpn-illustration[data-state="secure"] .data-packet text {
+    fill: rgba(255, 255, 255, 0.95);
+    stroke: none;
+}
+
+.vpn-illustration[data-state="secure"] .vpn-spy circle,
+.vpn-illustration[data-state="secure"] .vpn-spy path {
+    fill: rgba(27, 28, 51, 0.25);
+}
+
+.vpn-illustration[data-state="secure"] .data-packet rect {
+    stroke: rgba(97, 87, 255, 0.4);
+    stroke-width: 1.5;
+    fill: rgba(97, 87, 255, 0.25);
+}
+
+.vpn-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ===========================================================================
+   Missão Guardião
+   ======================================================================== */
+.guardian {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.guardian-card {
+    width: min(340px, 100%);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-large);
+    background: linear-gradient(160deg, rgba(97, 87, 255, 0.2), rgba(97, 87, 255, 0.05));
+    border: 1px solid rgba(97, 87, 255, 0.25);
+    box-shadow: var(--shadow-soft);
+    display: grid;
+    gap: 1.5rem;
+}
+
+.guardian-face {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.8), rgba(97, 87, 255, 0.4));
+    display: grid;
+    place-items: center;
+}
+
+.guardian-face .eye {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: inset -4px -4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.guardian-face .eye.left {
+    left: 35px;
+    top: 52px;
+}
+
+.guardian-face .eye.right {
+    right: 35px;
+    top: 52px;
+}
+
+.guardian-face .pulse {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(97, 87, 255, 0.25);
+    animation: pulse 2.5s ease infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.65;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0.65;
+    }
+}
+
+.guardian-status {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.guardian-message {
+    margin: 0;
+    color: var(--color-text-soft);
+}
+
+.guardian-card.is-awake .pulse {
+    background: rgba(43, 182, 115, 0.3);
+    animation-duration: 1.6s;
+}
+
+.guardian-card.is-awake .guardian-status {
+    color: var(--color-success);
+}
+
+.guardian-tips {
+    text-align: left;
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    padding: 1.5rem;
+}
+
+.guardian-tips ul {
+    margin: 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+/* ===========================================================================
+   Missão Certificado
+   ======================================================================== */
+.certificate {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.certificate-card {
+    position: relative;
+    width: min(420px, 100%);
+    border-radius: var(--radius-large);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.certificate-border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 2px dashed rgba(97, 87, 255, 0.25);
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(97, 87, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(97, 87, 255, 0.08);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(97, 87, 255, 0.2);
+    }
+}
+
+.certificate-inner {
+    position: relative;
+    padding: 2.5rem 2rem;
+    border-radius: calc(var(--radius-large) - 16px);
+    background: radial-gradient(circle at top, rgba(97, 87, 255, 0.12), transparent 80%);
+    display: grid;
+    gap: 1rem;
+}
+
+.certificate-title {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--color-text-soft);
+}
+
+.certificate-name {
+    margin: 0;
+    font-size: 1.65rem;
+}
+
+.certificate-message {
+    margin: 0;
+    color: var(--color-text-soft);
+}
+
+.certificate-seal {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 8px 12px rgba(97, 87, 255, 0.2));
+}
+
+.certificate-card.is-earned .certificate-inner {
+    animation: certificatePop 0.7s ease;
+}
+
+.certificate-card.is-earned .certificate-seal {
+    animation: sealBounce 1.6s ease infinite;
+}
+
+@keyframes certificatePop {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.4;
+    }
+    60% {
+        transform: scale(1.04);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes sealBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* ===========================================================================
+   Quiz final
+   ======================================================================== */
+.quiz-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.quiz-form fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
+    background: var(--color-surface-soft);
+}
+
+.quiz-form legend {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.quiz-form label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    line-height: 1.4;
+}
+
+.quiz-result {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-medium);
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    font-weight: 600;
+}
+
+.extra-level {
+    margin-top: 1.5rem;
+    padding: 1.75rem;
+    border-radius: var(--radius-medium);
+    border: 1px dashed rgba(97, 87, 255, 0.4);
+    background: rgba(97, 87, 255, 0.08);
+    text-align: center;
+    animation: panelFade 0.4s ease;
+}
+
+.extra-share {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+/* ===========================================================================
+   Curiosidade Snowden
+   ======================================================================== */
+.curiosity {
+    display: flex;
+    justify-content: center;
+}
+
+.curiosity-card {
+    max-width: 720px;
+    padding: clamp(2rem, 4vw, 3rem);
+    background: var(--color-surface);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.curiosity-list {
+    padding-left: 1.4rem;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.curiosity-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ===========================================================================
+   Paginação das missões em telas pequenas
+   ======================================================================== */
+@media (max-width: 900px) {
+    .lock-mission {
+        grid-template-columns: 1fr;
+    }
+
+    .mission {
+        padding: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .mission-content {
+        gap: 1.25rem;
+    }
+
+    .mission-aside {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .site-nav {
+        padding-inline: 1rem;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .mission-pagination {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .mission-card {
+        padding: 1.4rem 1.25rem;
+    }
+
+    .cipher-output,
+    .guardian-tips,
+    .quiz-form fieldset {
+        padding: 1.25rem;
+    }
+
+    .certificate-inner {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* ===========================================================================
+   Preferência por reduzir movimento
+   ======================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

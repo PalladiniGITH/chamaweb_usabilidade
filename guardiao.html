@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missão Guardião Digital da jornada Segredos Digitais: descubra o monitor que vigia seu aparelho em busca de ameaças.">
+    <title>Missão Guardião Digital | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="guardiao">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 06</p>
+                <h1>Guardião Digital</h1>
+            </header>
+            <p class="mission-intro">O guardião digital é o conjunto de recursos que monitora seu aparelho em tempo real: antivírus, detecção de apps suspeitos e alertas de invasão. Vamos acordá-lo?</p>
+            <div class="mission-content guardian">
+                <div class="guardian-card" id="guardianCard" aria-live="polite">
+                    <div class="guardian-face" aria-hidden="true">
+                        <span class="eye left"></span>
+                        <span class="eye right"></span>
+                        <span class="pulse"></span>
+                    </div>
+                    <div class="guardian-body">
+                        <p id="guardianStatus" class="guardian-status">Adormecido</p>
+                        <p id="guardianMessage" class="guardian-message">Toque em "Apresentar guardião" para ativar a proteção.</p>
+                    </div>
+                </div>
+                <button id="guardianButton" class="primary-button" type="button">🛡️ Apresentar guardião</button>
+                <div class="guardian-tips" id="guardianTips" hidden>
+                    <h2>Como ele protege você?</h2>
+                    <ul>
+                        <li>Analisa aplicativos instalados e bloqueia malwares.</li>
+                        <li>Monitora redes Wi-Fi e alerta se alguma for perigosa.</li>
+                        <li>Detecta tentativas de acesso físico indevido.</li>
+                        <li>Permite localizar ou apagar o dispositivo em caso de perda.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="vpn.html">← Missão anterior</a>
+            <a class="nav-link next" href="certificado.html">Próxima missão →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Ative as atualizações automáticas para manter o guardião digital sempre alerta.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

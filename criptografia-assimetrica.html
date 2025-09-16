@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Missão Criptografia Assimétrica da jornada Segredos Digitais: visualize as chaves pública e privada trabalhando juntas.">
+    <title>Missão Criptografia Assimétrica | Segredos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="assimetrica">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <article class="mission">
+            <header class="mission-header">
+                <p class="mission-overline">Missão 03</p>
+                <h1>Criptografia Assimétrica</h1>
+            </header>
+            <p class="mission-intro">Aqui as mensagens usam duas chaves diferentes: uma pode ser compartilhada publicamente e a outra fica guardada só com você. Veja como esse dueto impede invasores de lerem o conteúdo.</p>
+            <div class="mission-content asymmetric">
+                <div id="asymmetricIllustration" class="asymmetric-illustration" data-state="public">
+                    <svg viewBox="0 0 360 220" role="img" aria-labelledby="tituloAssimetrica" aria-describedby="descricaoAssimetrica">
+                        <title id="tituloAssimetrica">Fluxo da criptografia assimétrica</title>
+                        <desc id="descricaoAssimetrica">Uma pessoa envia uma mensagem trancada com a chave pública, que percorre um caminho colorido até o destinatário. Somente a chave privada abre o cadeado final.</desc>
+                        <defs>
+                            <linearGradient id="pathGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                                <stop offset="0%" stop-color="#8ec5fc"></stop>
+                                <stop offset="50%" stop-color="#e0c3fc"></stop>
+                                <stop offset="100%" stop-color="#f093fb"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g class="avatar avatar-sender">
+                            <circle cx="52" cy="60" r="32" class="avatar-ring"></circle>
+                            <text x="52" y="64" text-anchor="middle" class="avatar-emoji" aria-hidden="true">👩‍💻</text>
+                            <text x="52" y="118" text-anchor="middle" class="avatar-label">Você</text>
+                        </g>
+                        <g class="avatar avatar-receiver">
+                            <circle cx="308" cy="60" r="32" class="avatar-ring"></circle>
+                            <text x="308" y="64" text-anchor="middle" class="avatar-emoji" aria-hidden="true">📱</text>
+                            <text x="308" y="118" text-anchor="middle" class="avatar-label">Contato</text>
+                        </g>
+                        <g class="public-key-group">
+                            <rect x="132" y="28" width="84" height="44" rx="12" class="key-card"></rect>
+                            <text x="174" y="56" text-anchor="middle" class="key-label">Chave pública</text>
+                            <path class="message-path" d="M84 60 C140 8 220 112 276 60" stroke="url(#pathGradient)" stroke-width="6" fill="none" stroke-linecap="round"></path>
+                            <g class="message-envelope">
+                                <rect x="150" y="82" width="60" height="38" rx="8"></rect>
+                                <polyline points="150,82 180,102 210,82" fill="none" stroke-width="3"></polyline>
+                            </g>
+                        </g>
+                        <g class="private-key-group">
+                            <rect x="132" y="148" width="96" height="48" rx="12" class="key-card"></rect>
+                            <text x="180" y="178" text-anchor="middle" class="key-label">Chave privada</text>
+                            <g class="lock-group">
+                                <rect x="252" y="156" width="44" height="38" rx="8"></rect>
+                                <path d="M264 156 v-12 a12 12 0 0 1 24 0 v12" fill="none" stroke-width="4"></path>
+                                <circle cx="274" cy="176" r="5"></circle>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="asymmetric-controls" role="group" aria-label="Alternar foco das chaves">
+                    <button class="secondary-button" type="button" data-view="public">Ver chave pública</button>
+                    <button class="secondary-button" type="button" data-view="private">Ver chave privada</button>
+                </div>
+                <p id="asymmetricDescription" class="mission-detail">A chave pública funciona como um cadeado aberto. Qualquer pessoa pode usá-la para trancar a mensagem que será enviada ao seu aparelho.</p>
+            </div>
+            <aside class="mission-aside">
+                <h2>Resumo rápido</h2>
+                <ol>
+                    <li>Você distribui sua chave pública para amigos, sites ou aplicativos.</li>
+                    <li>As mensagens chegam trancadas, impossíveis de abrir durante o trajeto.</li>
+                    <li>Só sua chave privada, guardada no aparelho, desbloqueia o conteúdo.</li>
+                </ol>
+            </aside>
+        </article>
+
+        <nav class="mission-pagination" aria-label="Navegação entre missões">
+            <a class="nav-link" href="linguagem.html">← Missão anterior</a>
+            <a class="nav-link next" href="https.html">Próxima missão →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>Curiosidade: essa técnica garante o cadeado do ícone 🔒 nas conexões HTTPS.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>

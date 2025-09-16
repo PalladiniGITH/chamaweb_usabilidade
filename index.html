@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Segredos Digitais é uma jornada gamificada para descobrir criptografia, HTTPS, VPN e proteção no celular.">
+    <title>Segredos Digitais | Jornada de Segurança Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" data-page="home">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+    <header class="site-header">
+        <div class="brand">
+            <a class="brand-link" href="index.html">Segredos Digitais</a>
+            <p class="brand-tagline">Jornada de Segurança Digital</p>
+        </div>
+        <div class="header-actions">
+            <div class="knowledge-counter" role="status" aria-live="polite">
+                <span class="counter-icon" aria-hidden="true">🧠</span>
+                <span id="pointsValue">0</span>
+                <span class="sr-only">pontos de conhecimento acumulados</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ativar modo escuro">
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+            </button>
+            <button id="restartJourney" class="link-button" type="button">Reiniciar jornada</button>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Mapa geral das missões">
+        <a data-page="home" href="index.html">Início</a>
+        <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
+        <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
+        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="https" href="https.html">HTTPS x HTTP</a>
+        <a data-page="vpn" href="vpn.html">Túnel VPN</a>
+        <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
+        <a data-page="certificado" href="certificado.html">Certificado</a>
+        <a data-page="quiz" href="quiz.html">Quiz Final</a>
+        <a data-page="snowden" href="snowden.html">Snowden</a>
+    </nav>
+
+    <main id="conteudo" class="site-main">
+        <section class="hero">
+            <p class="hero-overline">Missão Segredos Digitais</p>
+            <h1>Descubra como o seu celular protege cada segredo</h1>
+            <p class="hero-lead">Embarque em uma jornada interativa para entender criptografia, conexões seguras, túneis invisíveis e muito mais. Cada página é uma missão curta — avance no seu tempo e acumule pontos de conhecimento.</p>
+            <div class="hero-actions">
+                <button id="startJourney" class="primary-button" type="button">🚀 Iniciar jornada</button>
+                <a class="ghost-button" href="snowden.html">📢 O que Snowden revelou?</a>
+            </div>
+        </section>
+
+        <section class="mission-grid" aria-labelledby="lista-de-missoes">
+            <div class="section-heading">
+                <p class="section-overline" id="lista-de-missoes">Mapa das missões</p>
+                <h2>Escolha por onde começar</h2>
+                <p>As missões estão organizadas em páginas independentes para você explorar com calma, sem perder nenhuma explicação importante.</p>
+            </div>
+            <ul class="mission-cards">
+                <li class="mission-card" data-mission="cofre">
+                    <div class="mission-icon" aria-hidden="true">🏦</div>
+                    <h3>O Cofre Invisível</h3>
+                    <p>Descubra o cadeado que protege fotos, conversas e senhas do seu aparelho.</p>
+                    <a class="card-link" href="cofre.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="linguagem">
+                    <div class="mission-icon" aria-hidden="true">🗣️</div>
+                    <h3>Linguagem Secreta</h3>
+                    <p>Transforme uma mensagem comum em código embaralhado com um clique.</p>
+                    <a class="card-link" href="linguagem.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="assimetrica">
+                    <div class="mission-icon" aria-hidden="true">🔑</div>
+                    <h3>Criptografia Assimétrica</h3>
+                    <p>Visualize o time público/privado que garante trocas seguras.</p>
+                    <a class="card-link" href="criptografia-assimetrica.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="https">
+                    <div class="mission-icon" aria-hidden="true">🌐</div>
+                    <h3>HTTPS x HTTP</h3>
+                    <p>Compare conexões seguras e inseguras e como reconhecê-las.</p>
+                    <a class="card-link" href="https.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="vpn">
+                    <div class="mission-icon" aria-hidden="true">🛣️</div>
+                    <h3>Túnel VPN</h3>
+                    <p>Entenda a metáfora do túnel secreto que protege seus dados.</p>
+                    <a class="card-link" href="vpn.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="guardiao">
+                    <div class="mission-icon" aria-hidden="true">🛡️</div>
+                    <h3>Guardião Digital</h3>
+                    <p>Conheça o vigilante que analisa ameaças em tempo real.</p>
+                    <a class="card-link" href="guardiao.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="certificado">
+                    <div class="mission-icon" aria-hidden="true">🎓</div>
+                    <h3>Certificado Final</h3>
+                    <p>Ganhe o diploma animado ao concluir todas as missões.</p>
+                    <a class="card-link" href="certificado.html">Ver missão</a>
+                </li>
+                <li class="mission-card" data-mission="quiz">
+                    <div class="mission-icon" aria-hidden="true">❓</div>
+                    <h3>Quiz Final</h3>
+                    <p>Responda três perguntas sobre criptografia e desbloqueie o nível extra.</p>
+                    <a class="card-link" href="quiz.html">Ver missão</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Feito para quem quer dominar segurança digital no celular — uma missão por vez.</p>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
