@@ -52,82 +52,78 @@
             </header>
             <p class="mission-intro">Aqui as mensagens usam duas chaves diferentes: uma pode ser compartilhada publicamente e a outra fica guardada só com você. Veja como esse dueto impede invasores de lerem o conteúdo.</p>
             <div class="mission-content asymmetric">
-                <div id="asymmetricIllustration" class="asymmetric-illustration" data-state="public">
-                    <svg viewBox="0 0 380 280" role="img" aria-labelledby="tituloAssimetrica" aria-describedby="descricaoAssimetrica">
-                        <title id="tituloAssimetrica">Fluxo da criptografia assimétrica</title>
-                        <desc id="descricaoAssimetrica">As mensagens saem do remetente trancadas com a chave pública, passam por curiosos que só veem códigos e são destrancadas com a chave privada ao chegar no contato.</desc>
-                        <defs>
-                            <linearGradient id="publicGradient" x1="0%" y1="50%" x2="100%" y2="50%">
-                                <stop offset="0%" stop-color="#8ec5fc"></stop>
-                                <stop offset="100%" stop-color="#a1c4fd"></stop>
-                            </linearGradient>
-                            <linearGradient id="privateGradient" x1="0%" y1="50%" x2="100%" y2="50%">
-                                <stop offset="0%" stop-color="#fbc2eb"></stop>
-                                <stop offset="100%" stop-color="#a6c1ee"></stop>
-                            </linearGradient>
-                            <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
-                                <path d="M0 0 L6 3 L0 6 Z" fill="currentColor"></path>
-                            </marker>
-                        </defs>
-                        <g class="actor actor-sender">
-                            <circle cx="60" cy="76" r="36" class="actor-ring"></circle>
-                            <text x="60" y="82" text-anchor="middle" class="actor-emoji" aria-hidden="true">👩‍💻</text>
-                            <text x="60" y="132" text-anchor="middle" class="actor-label">Você</text>
-                        </g>
-                        <g class="actor actor-receiver">
-                            <circle cx="320" cy="76" r="36" class="actor-ring"></circle>
-                            <text x="320" y="82" text-anchor="middle" class="actor-emoji" aria-hidden="true">📱</text>
-                            <text x="320" y="132" text-anchor="middle" class="actor-label">Contato</text>
-                        </g>
-                        <g class="key-card public-card">
-                            <rect x="124" y="20" width="132" height="56" rx="18"></rect>
-                            <text x="190" y="54" text-anchor="middle">Chave pública</text>
-                        </g>
-                        <g class="key-card private-card">
-                            <rect x="122" y="188" width="140" height="60" rx="18"></rect>
-                            <text x="192" y="222" text-anchor="middle">Chave privada</text>
-                        </g>
-                        <g class="public-flow">
-                            <path class="flow-line" d="M96 120 C150 64 230 64 284 120" stroke="url(#publicGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
-                            <g class="message-card message-card--locked" transform="translate(146,96)">
-                                <rect class="message-bg" x="0" y="0" width="90" height="54" rx="16"></rect>
-                                <polyline class="message-flap" points="0,0 45,28 90,0" fill="none"></polyline>
-                                <text x="45" y="34" text-anchor="middle" class="message-text message-text--cipher">010101</text>
-                                <g class="mini-lock mini-lock--closed" transform="translate(62,8)">
-                                    <rect width="18" height="18" rx="6"></rect>
-                                    <path d="M3 6 v-5 a6 6 0 0 1 12 0 v5" fill="none"></path>
-                                </g>
-                            </g>
-                            <text x="190" y="176" text-anchor="middle" class="flow-caption">Mensagem sai trancada</text>
-                        </g>
-                        <g class="asymmetric-spy">
-                            <circle cx="190" cy="140" r="20"></circle>
-                            <text x="190" y="146" text-anchor="middle" class="spy-emoji" aria-hidden="true">👀</text>
-                            <g class="spy-bubble" transform="translate(160,162)">
-                                <rect width="60" height="32" rx="10"></rect>
-                                <text x="30" y="20" text-anchor="middle" class="spy-text spy-text--cipher">???</text>
-                            </g>
-                        </g>
-                        <g class="private-flow">
-                            <path class="flow-line" d="M100 206 C162 262 236 262 296 206" stroke="url(#privateGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
-                            <g class="message-card message-card--unlocked" transform="translate(152,200)">
-                                <rect class="message-bg" x="0" y="0" width="90" height="54" rx="16"></rect>
-                                <polyline class="message-flap" points="0,0 45,28 90,0" fill="none"></polyline>
-                                <text x="45" y="30" text-anchor="middle" class="message-text message-text--cipher">010101</text>
-                                <text x="45" y="38" text-anchor="middle" class="message-text message-text--plain">Olá!</text>
-                                <g class="mini-lock mini-lock--open" transform="translate(10,8)">
-                                    <rect width="18" height="18" rx="6"></rect>
-                                    <path d="M3 8 v-5 a6 6 0 0 1 12 0" fill="none"></path>
-                                </g>
-                                <g class="mini-key" transform="translate(60,30)">
-                                    <circle cx="6" cy="6" r="6"></circle>
-                                    <rect x="8" y="5" width="14" height="4" rx="2"></rect>
-                                    <rect x="20" y="5" width="6" height="4" rx="2"></rect>
-                                </g>
-                            </g>
-                            <text x="212" y="276" text-anchor="middle" class="flow-caption">Só a chave privada revela o texto</text>
-                        </g>
-                    </svg>
+                <div id="asymmetricIllustration" class="asymmetric-illustration" data-state="public" role="group" aria-labelledby="fluxoAssimetricoTitulo" aria-describedby="fluxoAssimetricoDescricao">
+                    <h2 id="fluxoAssimetricoTitulo" class="sr-only">Fluxo da criptografia assimétrica</h2>
+                    <p id="fluxoAssimetricoDescricao" class="sr-only">O contato usa a chave pública para trancar a mensagem, que viaja em forma de código. Somente sua chave privada abre o cadeado e revela o texto claro.</p>
+                    <div class="asymmetric-diagram">
+                        <section class="diagram-track" data-track="public">
+                            <header class="track-head">
+                                <span class="track-icon" aria-hidden="true">🔐</span>
+                                <h3>1. Cadeado com a chave pública</h3>
+                            </header>
+                            <div class="track-flow" aria-label="Mensagem sendo trancada com a chave pública">
+                                <div class="flow-node">
+                                    <span class="node-avatar" aria-hidden="true">🧑‍🤝‍🧑</span>
+                                    <span class="node-label">Contato</span>
+                                    <span class="node-note">Usa a chave pública</span>
+                                </div>
+                                <div class="flow-connector" aria-hidden="true">
+                                    <span class="connector-arrow">➜</span>
+                                    <span class="connector-badge">🔒</span>
+                                </div>
+                                <div class="flow-message">
+                                    <code class="message-code">010101</code>
+                                    <span class="message-caption">Mensagem cifrada</span>
+                                </div>
+                                <div class="flow-connector" aria-hidden="true">
+                                    <span class="connector-arrow">➜</span>
+                                </div>
+                                <div class="flow-node">
+                                    <span class="node-avatar" aria-hidden="true">👩‍💻</span>
+                                    <span class="node-label">Você</span>
+                                    <span class="node-note">Recebe trancado</span>
+                                </div>
+                            </div>
+                            <p class="track-explainer">Compartilhe a chave pública: ela tranca o texto antes de cruzar a internet.</p>
+                        </section>
+                        <section class="spy-card" aria-label="O que um espião vê no caminho">
+                            <span class="spy-avatar" aria-hidden="true">🕵️</span>
+                            <p class="spy-title">Curioso na rede</p>
+                            <code aria-label="Mensagem ilegível">???</code>
+                            <p class="spy-caption">Sem a chave privada, só aparecem códigos.</p>
+                        </section>
+                        <section class="diagram-track" data-track="private">
+                            <header class="track-head">
+                                <span class="track-icon" aria-hidden="true">🔑</span>
+                                <h3>2. Abrir com a chave privada</h3>
+                            </header>
+                            <div class="track-flow" aria-label="Mensagem sendo destrancada com a chave privada">
+                                <div class="flow-node">
+                                    <span class="node-avatar" aria-hidden="true">👩‍💻</span>
+                                    <span class="node-label">Você</span>
+                                    <span class="node-note">Guarda a chave privada</span>
+                                </div>
+                                <div class="flow-connector" aria-hidden="true">
+                                    <span class="connector-arrow">➜</span>
+                                    <span class="connector-badge">🔑</span>
+                                </div>
+                                <div class="flow-message flow-message--unlock">
+                                    <code class="message-code">010101</code>
+                                    <span class="message-caption">Vira texto claro</span>
+                                    <span class="message-plain">Olá!</span>
+                                </div>
+                                <div class="flow-connector" aria-hidden="true">
+                                    <span class="connector-arrow">➜</span>
+                                </div>
+                                <div class="flow-node">
+                                    <span class="node-avatar" aria-hidden="true">💬</span>
+                                    <span class="node-label">Mensagem lida</span>
+                                    <span class="node-note">Só por você</span>
+                                </div>
+                            </div>
+                            <p class="track-explainer">Sem a chave privada, ninguém consegue abrir o cadeado final.</p>
+                        </section>
+                    </div>
                 </div>
                 <div class="asymmetric-controls" role="group" aria-label="Alternar foco das chaves">
                     <button class="secondary-button" type="button" data-view="public">Ver chave pública</button>

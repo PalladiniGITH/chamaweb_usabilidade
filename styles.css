@@ -669,157 +669,230 @@ img, svg {
 
 .asymmetric-illustration {
     width: 100%;
-    max-width: 640px;
-    padding: 2rem;
+    max-width: 760px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
     border-radius: var(--radius-large);
-    background: radial-gradient(circle at top, rgba(97, 87, 255, 0.08), transparent 70%);
-    border: 1px solid rgba(97, 87, 255, 0.25);
+    background: linear-gradient(145deg, rgba(97, 87, 255, 0.1), transparent 70%), var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    display: grid;
+    gap: 1.75rem;
+    transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
-.asymmetric-illustration svg {
-    width: 100%;
+.asymmetric-diagram {
+    display: grid;
+    gap: 1.5rem;
 }
 
-.asymmetric-illustration svg text {
-    fill: var(--color-text);
-    font-size: clamp(0.85rem, 1vw + 0.6rem, 1.05rem);
+.diagram-track,
+.spy-card {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+    padding: clamp(1.25rem, 3vw, 1.8rem);
+    border-radius: var(--radius-medium);
+    background: var(--color-surface-soft);
+    border: 1px solid rgba(97, 87, 255, 0.18);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background var(--transition), opacity var(--transition);
 }
 
-.actor-ring {
-    fill: var(--color-surface);
-    stroke: rgba(97, 87, 255, 0.28);
-    stroke-width: 3;
+.diagram-track {
+    opacity: 0.65;
 }
 
-.actor-emoji {
-    font-size: 1.4rem;
+.track-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: center;
 }
 
-.actor-label {
-    font-size: 0.92rem;
+.track-head h3 {
+    margin: 0;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.track-icon {
+    font-size: 1.6rem;
+}
+
+.track-flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.flow-node,
+.flow-message,
+.flow-connector {
+    display: grid;
+    gap: 0.35rem;
+    justify-items: center;
+}
+
+.flow-node {
+    min-width: 120px;
+}
+
+.node-avatar {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--color-surface);
+    border: 2px solid rgba(97, 87, 255, 0.28);
+    font-size: 1.6rem;
+}
+
+.node-label {
     font-weight: 600;
 }
 
-.key-card rect {
-    fill: var(--color-surface);
-    stroke: rgba(97, 87, 255, 0.35);
-    stroke-width: 2;
-}
-
-.key-card text {
-    fill: var(--color-text);
+.node-note {
     font-size: 0.82rem;
+    color: var(--color-text-soft);
 }
 
-.flow-line {
-    transition: opacity 0.35s ease;
+.flow-message {
+    min-width: min(220px, 70vw);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-small);
+    border: 1px dashed rgba(97, 87, 255, 0.4);
+    background: var(--color-surface);
+    box-shadow: 0 12px 24px rgba(97, 87, 255, 0.08);
 }
 
-.message-card {
-    transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-.message-bg {
-    fill: var(--color-surface);
-    stroke: rgba(97, 87, 255, 0.25);
-    stroke-width: 2;
-}
-
-.message-flap {
-    stroke: rgba(97, 87, 255, 0.28);
-    stroke-width: 2;
-}
-
-.message-text {
-    font-size: 0.82rem;
-    fill: var(--color-text);
-}
-
-.message-text--cipher {
-    font-family: 'Fira Code', monospace;
+.flow-message code {
+    font-family: var(--font-mono);
     letter-spacing: 0.08em;
+    font-size: 0.9rem;
 }
 
-.message-text--plain {
-    opacity: 0;
-    transition: opacity 0.35s ease;
-}
-
-.mini-lock rect {
-    fill: rgba(97, 87, 255, 0.16);
-    stroke: rgba(97, 87, 255, 0.5);
-    stroke-width: 2;
-}
-
-.mini-lock path {
-    stroke: rgba(97, 87, 255, 0.65);
-    stroke-width: 2;
-}
-
-.mini-lock--open path {
-    stroke: rgba(240, 147, 251, 0.75);
-}
-
-.mini-key circle,
-.mini-key rect {
-    fill: rgba(240, 147, 251, 0.45);
-}
-
-.flow-caption {
-    fill: var(--color-text-soft);
-    font-size: 0.84rem;
-}
-
-.asymmetric-spy circle {
-    fill: rgba(97, 87, 255, 0.08);
-    stroke: rgba(97, 87, 255, 0.25);
-    stroke-width: 2;
-}
-
-.spy-emoji {
-    font-size: 1.1rem;
-}
-
-.spy-bubble rect {
-    fill: rgba(97, 87, 255, 0.12);
-    stroke: rgba(97, 87, 255, 0.3);
-    stroke-width: 1.5;
-}
-
-.spy-text {
-    fill: var(--color-text);
-    font-family: 'Fira Code', monospace;
+.message-caption {
     font-size: 0.82rem;
+    color: var(--color-text-soft);
 }
 
-.public-flow,
-.private-flow {
-    opacity: 0.45;
-    transition: opacity 0.35s ease;
-}
-
-.asymmetric-illustration[data-state="public"] .public-flow {
-    opacity: 1;
-}
-
-.asymmetric-illustration[data-state="public"] .public-card rect {
-    filter: drop-shadow(0 0 12px rgba(97, 87, 255, 0.35));
-}
-
-.asymmetric-illustration[data-state="private"] .private-flow {
-    opacity: 1;
-}
-
-.asymmetric-illustration[data-state="private"] .private-card rect {
-    filter: drop-shadow(0 0 14px rgba(240, 147, 251, 0.35));
-}
-
-.asymmetric-illustration[data-state="private"] .message-card--unlocked .message-text--plain {
-    opacity: 1;
-}
-
-.asymmetric-illustration[data-state="private"] .message-card--unlocked .message-text--cipher {
+.message-plain {
+    font-weight: 600;
+    color: var(--color-accent-strong);
     opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.flow-connector {
+    min-width: 70px;
+    grid-auto-flow: column;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.connector-arrow {
+    font-size: 1.4rem;
+    color: var(--color-text-soft);
+}
+
+.connector-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 999px;
+    background: rgba(97, 87, 255, 0.16);
+    color: var(--color-accent-strong);
+    font-size: 1.2rem;
+    box-shadow: 0 10px 20px rgba(97, 87, 255, 0.12);
+}
+
+.spy-card {
+    border-style: dashed;
+    border-color: rgba(97, 87, 255, 0.3);
+    background: linear-gradient(120deg, rgba(97, 87, 255, 0.12), transparent 75%), var(--color-surface);
+    align-items: center;
+}
+
+.spy-avatar {
+    font-size: 2rem;
+}
+
+.spy-title {
+    margin: 0;
+    font-weight: 600;
+}
+
+.spy-caption {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-soft);
+}
+
+.spy-card code {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    background: var(--color-surface);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 1px dashed rgba(97, 87, 255, 0.35);
+}
+
+.asymmetric-illustration[data-state="public"] .diagram-track[data-track="public"] {
+    opacity: 1;
+    background: linear-gradient(140deg, rgba(97, 87, 255, 0.16), transparent 70%);
+    border-color: rgba(97, 87, 255, 0.42);
+    box-shadow: 0 18px 36px rgba(97, 87, 255, 0.18);
+    transform: translateY(-4px);
+}
+
+.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] {
+    opacity: 1;
+    background: linear-gradient(140deg, rgba(240, 147, 251, 0.2), transparent 70%);
+    border-color: rgba(240, 147, 251, 0.45);
+    box-shadow: 0 18px 36px rgba(240, 147, 251, 0.2);
+    transform: translateY(-4px);
+}
+
+.asymmetric-illustration[data-state="public"] .diagram-track[data-track="public"] .connector-badge {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] .connector-badge {
+    background: rgba(240, 147, 251, 0.85);
+    color: var(--color-text);
+}
+
+.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] .message-plain {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] .message-code {
+    color: var(--color-text-soft);
+}
+
+.track-explainer {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-soft);
+}
+
+@media (min-width: 768px) {
+    .asymmetric-diagram {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .asymmetric-diagram .spy-card {
+        grid-column: 1 / -1;
+        max-width: 420px;
+        justify-self: center;
+    }
 }
 
 .asymmetric-controls {
