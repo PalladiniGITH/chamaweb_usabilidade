@@ -669,8 +669,8 @@ img, svg {
 
 .asymmetric-illustration {
     width: 100%;
-    max-width: 560px;
-    padding: 1.75rem;
+    max-width: 640px;
+    padding: 2rem;
     border-radius: var(--radius-large);
     background: radial-gradient(circle at top, rgba(97, 87, 255, 0.08), transparent 70%);
     border: 1px solid rgba(97, 87, 255, 0.25);
@@ -682,7 +682,7 @@ img, svg {
 
 .asymmetric-illustration svg text {
     fill: var(--color-text);
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1vw + 0.6rem, 1.05rem);
 }
 
 .actor-ring {
@@ -767,7 +767,7 @@ img, svg {
 
 .flow-caption {
     fill: var(--color-text-soft);
-    font-size: 0.78rem;
+    font-size: 0.84rem;
 }
 
 .asymmetric-spy circle {

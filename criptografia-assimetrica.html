@@ -53,7 +53,7 @@
             <p class="mission-intro">Aqui as mensagens usam duas chaves diferentes: uma pode ser compartilhada publicamente e a outra fica guardada só com você. Veja como esse dueto impede invasores de lerem o conteúdo.</p>
             <div class="mission-content asymmetric">
                 <div id="asymmetricIllustration" class="asymmetric-illustration" data-state="public">
-                    <svg viewBox="0 0 380 240" role="img" aria-labelledby="tituloAssimetrica" aria-describedby="descricaoAssimetrica">
+                    <svg viewBox="0 0 380 280" role="img" aria-labelledby="tituloAssimetrica" aria-describedby="descricaoAssimetrica">
                         <title id="tituloAssimetrica">Fluxo da criptografia assimétrica</title>
                         <desc id="descricaoAssimetrica">As mensagens saem do remetente trancadas com a chave pública, passam por curiosos que só veem códigos e são destrancadas com a chave privada ao chegar no contato.</desc>
                         <defs>
@@ -80,16 +80,16 @@
                             <text x="320" y="132" text-anchor="middle" class="actor-label">Contato</text>
                         </g>
                         <g class="key-card public-card">
-                            <rect x="142" y="18" width="96" height="48" rx="14"></rect>
-                            <text x="190" y="48" text-anchor="middle">Chave pública</text>
+                            <rect x="124" y="20" width="132" height="56" rx="18"></rect>
+                            <text x="190" y="54" text-anchor="middle">Chave pública</text>
                         </g>
                         <g class="key-card private-card">
-                            <rect x="142" y="172" width="110" height="52" rx="16"></rect>
-                            <text x="197" y="204" text-anchor="middle">Chave privada</text>
+                            <rect x="122" y="188" width="140" height="60" rx="18"></rect>
+                            <text x="192" y="222" text-anchor="middle">Chave privada</text>
                         </g>
                         <g class="public-flow">
-                            <path class="flow-line" d="M96 88 C150 28 230 28 284 88" stroke="url(#publicGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
-                            <g class="message-card message-card--locked" transform="translate(150,64)">
+                            <path class="flow-line" d="M96 120 C150 64 230 64 284 120" stroke="url(#publicGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
+                            <g class="message-card message-card--locked" transform="translate(146,96)">
                                 <rect class="message-bg" x="0" y="0" width="90" height="54" rx="16"></rect>
                                 <polyline class="message-flap" points="0,0 45,28 90,0" fill="none"></polyline>
                                 <text x="45" y="34" text-anchor="middle" class="message-text message-text--cipher">010101</text>
@@ -98,19 +98,19 @@
                                     <path d="M3 6 v-5 a6 6 0 0 1 12 0 v5" fill="none"></path>
                                 </g>
                             </g>
-                            <text x="190" y="58" text-anchor="middle" class="flow-caption">Mensagem sai trancada</text>
+                            <text x="190" y="176" text-anchor="middle" class="flow-caption">Mensagem sai trancada</text>
                         </g>
                         <g class="asymmetric-spy">
-                            <circle cx="190" cy="124" r="20"></circle>
-                            <text x="190" y="130" text-anchor="middle" class="spy-emoji" aria-hidden="true">👀</text>
-                            <g class="spy-bubble" transform="translate(160,146)">
+                            <circle cx="190" cy="140" r="20"></circle>
+                            <text x="190" y="146" text-anchor="middle" class="spy-emoji" aria-hidden="true">👀</text>
+                            <g class="spy-bubble" transform="translate(160,162)">
                                 <rect width="60" height="32" rx="10"></rect>
                                 <text x="30" y="20" text-anchor="middle" class="spy-text spy-text--cipher">???</text>
                             </g>
                         </g>
                         <g class="private-flow">
-                            <path class="flow-line" d="M100 148 C162 208 236 208 296 152" stroke="url(#privateGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
-                            <g class="message-card message-card--unlocked" transform="translate(158,150)">
+                            <path class="flow-line" d="M100 206 C162 262 236 262 296 206" stroke="url(#privateGradient)" stroke-width="6" fill="none" stroke-linecap="round" marker-end="url(#arrowHead)"></path>
+                            <g class="message-card message-card--unlocked" transform="translate(152,200)">
                                 <rect class="message-bg" x="0" y="0" width="90" height="54" rx="16"></rect>
                                 <polyline class="message-flap" points="0,0 45,28 90,0" fill="none"></polyline>
                                 <text x="45" y="30" text-anchor="middle" class="message-text message-text--cipher">010101</text>
@@ -125,7 +125,7 @@
                                     <rect x="20" y="5" width="6" height="4" rx="2"></rect>
                                 </g>
                             </g>
-                            <text x="212" y="214" text-anchor="middle" class="flow-caption">Só a chave privada revela o texto</text>
+                            <text x="212" y="276" text-anchor="middle" class="flow-caption">Só a chave privada revela o texto</text>
                         </g>
                     </svg>
                 </div>
