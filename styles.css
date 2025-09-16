@@ -662,244 +662,152 @@ img, svg {
    ======================================================================== */
 .asymmetric {
     display: grid;
-    gap: 1.75rem;
-    justify-items: center;
-    text-align: center;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.asymmetric-illustration {
-    width: 100%;
-    max-width: 760px;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
+.asymmetric-visual {
+    width: min(680px, 100%);
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     border-radius: var(--radius-large);
-    background: linear-gradient(145deg, rgba(97, 87, 255, 0.1), transparent 70%), var(--color-surface);
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-soft);
     display: grid;
-    gap: 1.75rem;
-    transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
-}
-
-.asymmetric-diagram {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.diagram-track,
-.spy-card {
-    display: grid;
-    gap: 1rem;
+    gap: clamp(1.25rem, 3vw, 1.8rem);
     text-align: center;
-    padding: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.asymmetric-lane {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 3vw, 1.5rem);
+}
+
+.visual-node {
+    min-width: 150px;
+    padding: 1rem 1.2rem;
     border-radius: var(--radius-medium);
     background: var(--color-surface-soft);
     border: 1px solid rgba(97, 87, 255, 0.18);
-    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background var(--transition), opacity var(--transition);
+    display: grid;
+    gap: 0.45rem;
+    justify-items: center;
 }
 
-.diagram-track {
-    opacity: 0.65;
+.visual-node strong {
+    font-size: 1.05rem;
 }
 
-.track-head {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    align-items: center;
-}
-
-.track-head h3 {
+.visual-node p {
     margin: 0;
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-size: 0.9rem;
+    color: var(--color-text-soft);
 }
 
-.track-icon {
-    font-size: 1.6rem;
+.visual-node code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    background: var(--color-surface);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px dashed rgba(97, 87, 255, 0.3);
 }
 
-.track-flow {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(0.75rem, 2vw, 1.25rem);
+.visual-node--message {
+    background: linear-gradient(140deg, rgba(97, 87, 255, 0.12), transparent 75%), var(--color-surface-soft);
 }
 
-.flow-node,
-.flow-message,
-.flow-connector {
+.visual-icon {
+    font-size: 2rem;
+}
+
+.visual-arrow {
     display: grid;
     gap: 0.35rem;
     justify-items: center;
 }
 
-.flow-node {
-    min-width: 120px;
+.arrow-line {
+    width: clamp(56px, 8vw, 84px);
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(97, 87, 255, 0.22);
 }
 
-.node-avatar {
-    width: 3.25rem;
-    height: 3.25rem;
+.arrow-icon {
+    font-size: 1.2rem;
+    color: var(--color-accent-strong);
+}
+
+.visual-note {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-medium);
+    background: var(--color-surface-soft);
+    border: 1px dashed rgba(97, 87, 255, 0.24);
+    color: var(--color-text-soft);
+}
+
+.visual-note p {
+    margin: 0;
+}
+
+.asymmetric-steps {
+    display: grid;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.asymmetric-step {
+    padding: 1.4rem 1.6rem;
+    border-radius: var(--radius-medium);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-soft);
+    display: grid;
+    gap: 0.75rem;
+}
+
+.asymmetric-step h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.asymmetric-step p {
+    margin: 0;
+    color: var(--color-text-soft);
+}
+
+.asymmetric-step--note {
+    background: rgba(97, 87, 255, 0.08);
+    border-style: dashed;
+}
+
+.step-number {
+    width: 2rem;
+    height: 2rem;
     border-radius: 999px;
     display: grid;
     place-items: center;
-    background: var(--color-surface);
-    border: 2px solid rgba(97, 87, 255, 0.28);
-    font-size: 1.6rem;
-}
-
-.node-label {
-    font-weight: 600;
-}
-
-.node-note {
-    font-size: 0.82rem;
-    color: var(--color-text-soft);
-}
-
-.flow-message {
-    min-width: min(220px, 70vw);
-    padding: 1rem 1.25rem;
-    border-radius: var(--radius-small);
-    border: 1px dashed rgba(97, 87, 255, 0.4);
-    background: var(--color-surface);
-    box-shadow: 0 12px 24px rgba(97, 87, 255, 0.08);
-}
-
-.flow-message code {
-    font-family: var(--font-mono);
-    letter-spacing: 0.08em;
-    font-size: 0.9rem;
-}
-
-.message-caption {
-    font-size: 0.82rem;
-    color: var(--color-text-soft);
-}
-
-.message-plain {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-accent-strong);
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity var(--transition), transform var(--transition);
-}
-
-.flow-connector {
-    min-width: 70px;
-    grid-auto-flow: column;
-    gap: 0.35rem;
-    align-items: center;
-}
-
-.connector-arrow {
-    font-size: 1.4rem;
-    color: var(--color-text-soft);
-}
-
-.connector-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.3rem;
-    height: 2.3rem;
-    border-radius: 999px;
     background: rgba(97, 87, 255, 0.16);
-    color: var(--color-accent-strong);
-    font-size: 1.2rem;
-    box-shadow: 0 10px 20px rgba(97, 87, 255, 0.12);
+    font-size: 0.95rem;
 }
 
-.spy-card {
-    border-style: dashed;
-    border-color: rgba(97, 87, 255, 0.3);
-    background: linear-gradient(120deg, rgba(97, 87, 255, 0.12), transparent 75%), var(--color-surface);
-    align-items: center;
-}
-
-.spy-avatar {
-    font-size: 2rem;
-}
-
-.spy-title {
-    margin: 0;
-    font-weight: 600;
-}
-
-.spy-caption {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--color-text-soft);
-}
-
-.spy-card code {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    background: var(--color-surface);
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    border: 1px dashed rgba(97, 87, 255, 0.35);
-}
-
-.asymmetric-illustration[data-state="public"] .diagram-track[data-track="public"] {
-    opacity: 1;
-    background: linear-gradient(140deg, rgba(97, 87, 255, 0.16), transparent 70%);
-    border-color: rgba(97, 87, 255, 0.42);
-    box-shadow: 0 18px 36px rgba(97, 87, 255, 0.18);
-    transform: translateY(-4px);
-}
-
-.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] {
-    opacity: 1;
-    background: linear-gradient(140deg, rgba(240, 147, 251, 0.2), transparent 70%);
-    border-color: rgba(240, 147, 251, 0.45);
-    box-shadow: 0 18px 36px rgba(240, 147, 251, 0.2);
-    transform: translateY(-4px);
-}
-
-.asymmetric-illustration[data-state="public"] .diagram-track[data-track="public"] .connector-badge {
-    background: var(--color-accent);
-    color: #fff;
-}
-
-.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] .connector-badge {
-    background: rgba(240, 147, 251, 0.85);
-    color: var(--color-text);
-}
-
-.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] .message-plain {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.asymmetric-illustration[data-state="private"] .diagram-track[data-track="private"] .message-code {
-    color: var(--color-text-soft);
-}
-
-.track-explainer {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--color-text-soft);
-}
-
-@media (min-width: 768px) {
-    .asymmetric-diagram {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (max-width: 600px) {
+    .asymmetric-visual {
+        padding: 1.5rem;
     }
 
-    .asymmetric-diagram .spy-card {
-        grid-column: 1 / -1;
-        max-width: 420px;
-        justify-self: center;
+    .visual-node {
+        min-width: 140px;
     }
-}
-
-.asymmetric-controls {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 /* ===========================================================================

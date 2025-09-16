@@ -227,40 +227,9 @@ const SegredosDigitais = (() => {
 
   const initAsymmetric = () => {
     const illustration = document.getElementById('asymmetricIllustration');
-    const description = document.getElementById('asymmetricDescription');
-    const toggles = document.querySelectorAll('.asymmetric-controls [data-view]');
-    if (!illustration || !description || toggles.length === 0) return;
+    if (!illustration) return;
 
-    const descriptions = {
-      public:
-        'A chave pública funciona como cadeado aberto. Você distribui para que outras pessoas possam trancar mensagens destinadas a você.',
-      private:
-        'A chave privada é guardada só no seu aparelho. Ela destranca o cadeado final e garante que apenas você leia o conteúdo.',
-    };
-
-    let current = illustration.dataset.state || 'public';
-
-    const applyView = (view) => {
-      current = view;
-      illustration.dataset.state = view;
-      toggles.forEach((button) => {
-        button.classList.toggle('is-active', button.dataset.view === view);
-      });
-      description.textContent = descriptions[view] || '';
-      if (view === 'private') {
-        markMissionComplete('assimetrica', 12);
-      }
-    };
-
-    toggles.forEach((button) => {
-      button.addEventListener('click', () => {
-        if (button.dataset.view) {
-          applyView(button.dataset.view);
-        }
-      });
-    });
-
-    applyView(current);
+    markMissionComplete('assimetrica', 12);
   };
 
   const initHttps = () => {

@@ -52,92 +52,65 @@
             </header>
             <p class="mission-intro">Aqui as mensagens usam duas chaves diferentes: uma pode ser compartilhada publicamente e a outra fica guardada só com você. Veja como esse dueto impede invasores de lerem o conteúdo.</p>
             <div class="mission-content asymmetric">
-                <div id="asymmetricIllustration" class="asymmetric-illustration" data-state="public" role="group" aria-labelledby="fluxoAssimetricoTitulo" aria-describedby="fluxoAssimetricoDescricao">
-                    <h2 id="fluxoAssimetricoTitulo" class="sr-only">Fluxo da criptografia assimétrica</h2>
-                    <p id="fluxoAssimetricoDescricao" class="sr-only">O contato usa a chave pública para trancar a mensagem, que viaja em forma de código. Somente sua chave privada abre o cadeado e revela o texto claro.</p>
-                    <div class="asymmetric-diagram">
-                        <section class="diagram-track" data-track="public">
-                            <header class="track-head">
-                                <span class="track-icon" aria-hidden="true">🔐</span>
-                                <h3>1. Cadeado com a chave pública</h3>
-                            </header>
-                            <div class="track-flow" aria-label="Mensagem sendo trancada com a chave pública">
-                                <div class="flow-node">
-                                    <span class="node-avatar" aria-hidden="true">🧑‍🤝‍🧑</span>
-                                    <span class="node-label">Contato</span>
-                                    <span class="node-note">Usa a chave pública</span>
-                                </div>
-                                <div class="flow-connector" aria-hidden="true">
-                                    <span class="connector-arrow">➜</span>
-                                    <span class="connector-badge">🔒</span>
-                                </div>
-                                <div class="flow-message">
-                                    <code class="message-code">010101</code>
-                                    <span class="message-caption">Mensagem cifrada</span>
-                                </div>
-                                <div class="flow-connector" aria-hidden="true">
-                                    <span class="connector-arrow">➜</span>
-                                </div>
-                                <div class="flow-node">
-                                    <span class="node-avatar" aria-hidden="true">👩‍💻</span>
-                                    <span class="node-label">Você</span>
-                                    <span class="node-note">Recebe trancado</span>
-                                </div>
-                            </div>
-                            <p class="track-explainer">Compartilhe a chave pública: ela tranca o texto antes de cruzar a internet.</p>
-                        </section>
-                        <section class="spy-card" aria-label="O que um espião vê no caminho">
-                            <span class="spy-avatar" aria-hidden="true">🕵️</span>
-                            <p class="spy-title">Curioso na rede</p>
-                            <code aria-label="Mensagem ilegível">???</code>
-                            <p class="spy-caption">Sem a chave privada, só aparecem códigos.</p>
-                        </section>
-                        <section class="diagram-track" data-track="private">
-                            <header class="track-head">
-                                <span class="track-icon" aria-hidden="true">🔑</span>
-                                <h3>2. Abrir com a chave privada</h3>
-                            </header>
-                            <div class="track-flow" aria-label="Mensagem sendo destrancada com a chave privada">
-                                <div class="flow-node">
-                                    <span class="node-avatar" aria-hidden="true">👩‍💻</span>
-                                    <span class="node-label">Você</span>
-                                    <span class="node-note">Guarda a chave privada</span>
-                                </div>
-                                <div class="flow-connector" aria-hidden="true">
-                                    <span class="connector-arrow">➜</span>
-                                    <span class="connector-badge">🔑</span>
-                                </div>
-                                <div class="flow-message flow-message--unlock">
-                                    <code class="message-code">010101</code>
-                                    <span class="message-caption">Vira texto claro</span>
-                                    <span class="message-plain">Olá!</span>
-                                </div>
-                                <div class="flow-connector" aria-hidden="true">
-                                    <span class="connector-arrow">➜</span>
-                                </div>
-                                <div class="flow-node">
-                                    <span class="node-avatar" aria-hidden="true">💬</span>
-                                    <span class="node-label">Mensagem lida</span>
-                                    <span class="node-note">Só por você</span>
-                                </div>
-                            </div>
-                            <p class="track-explainer">Sem a chave privada, ninguém consegue abrir o cadeado final.</p>
-                        </section>
+                <figure id="asymmetricIllustration" class="asymmetric-visual" role="group" aria-labelledby="fluxoAssimetricoTitulo" aria-describedby="fluxoAssimetricoDescricao">
+                    <h2 id="fluxoAssimetricoTitulo" class="sr-only">Como a criptografia assimétrica protege suas mensagens</h2>
+                    <div class="asymmetric-lane">
+                        <div class="visual-node">
+                            <span class="visual-icon" aria-hidden="true">🤝</span>
+                            <strong>Contato</strong>
+                            <p>Usa sua chave pública</p>
+                        </div>
+                        <div class="visual-arrow" aria-hidden="true">
+                            <span class="arrow-line"></span>
+                            <span class="arrow-icon">🔒</span>
+                        </div>
+                        <div class="visual-node visual-node--message">
+                            <span class="visual-icon" aria-hidden="true">📦</span>
+                            <strong>Mensagem</strong>
+                            <code aria-label="Mensagem cifrada">010101</code>
+                            <p>Viaja trancada</p>
+                        </div>
+                        <div class="visual-arrow" aria-hidden="true">
+                            <span class="arrow-line"></span>
+                            <span class="arrow-icon">🔑</span>
+                        </div>
+                        <div class="visual-node">
+                            <span class="visual-icon" aria-hidden="true">👩‍💻</span>
+                            <strong>Você</strong>
+                            <p>Abre com a chave privada</p>
+                        </div>
                     </div>
+                    <figcaption class="visual-note" id="fluxoAssimetricoDescricao">
+                        <span class="visual-icon" aria-hidden="true">🕵️</span>
+                        <p>Mesmo interceptando o trajeto, curiosos só enxergam códigos sem sentido.</p>
+                    </figcaption>
+                </figure>
+                <div class="asymmetric-steps" role="list">
+                    <article class="asymmetric-step" role="listitem">
+                        <span class="step-number">1</span>
+                        <h3>Compartilhe o cadeado público</h3>
+                        <p>Envie a chave pública para quem precisa falar com você. Ela apenas tranca a mensagem.</p>
+                    </article>
+                    <article class="asymmetric-step" role="listitem">
+                        <span class="step-number">2</span>
+                        <h3>Guarde a chave privada</h3>
+                        <p>Só o seu aparelho guarda a chave secreta que abre o cadeado e revela o texto claro.</p>
+                    </article>
+                    <article class="asymmetric-step asymmetric-step--note" role="listitem">
+                        <span class="step-number" aria-hidden="true">★</span>
+                        <h3>Intercepção não funciona</h3>
+                        <p>Se um invasor copiar a mensagem trancada, continuará preso do lado de fora.</p>
+                    </article>
                 </div>
-                <div class="asymmetric-controls" role="group" aria-label="Alternar foco das chaves">
-                    <button class="secondary-button" type="button" data-view="public">Ver chave pública</button>
-                    <button class="secondary-button" type="button" data-view="private">Ver chave privada</button>
-                </div>
-                <p id="asymmetricDescription" class="mission-detail">A chave pública funciona como um cadeado aberto. Qualquer pessoa pode usá-la para trancar a mensagem que será enviada ao seu aparelho.</p>
+                <p class="mission-detail">Esse par de chaves trabalha junto: uma fica pública para proteger o envio e a outra permanece privada para liberar o conteúdo.</p>
             </div>
             <aside class="mission-aside">
-                <h2>Resumo rápido</h2>
-                <ol>
-                    <li>Você distribui sua chave pública para amigos, sites ou aplicativos.</li>
-                    <li>As mensagens chegam trancadas, impossíveis de abrir durante o trajeto.</li>
-                    <li>Só sua chave privada, guardada no aparelho, desbloqueia o conteúdo.</li>
-                </ol>
+                <h2>Dica rápida</h2>
+                <ul>
+                    <li>Chave pública = cadeado aberto para trancar as mensagens.</li>
+                    <li>Chave privada = chave única guardada por você.</li>
+                    <li>Espiões sem a chave privada continuam vendo apenas códigos.</li>
+                </ul>
             </aside>
         </article>
 
