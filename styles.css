@@ -666,7 +666,7 @@ img, svg {
 }
 
 .end2end-visual {
-    width: min(680px, 100%);
+    width: min(660px, 100%);
     margin: 0 auto;
     padding: clamp(1.5rem, 4vw, 2.5rem);
     border-radius: var(--radius-large);
@@ -679,24 +679,24 @@ img, svg {
 }
 
 .end2end-lane {
-    --connector-width: clamp(42px, 7vw, 68px);
+    --connector-width: clamp(36px, 5vw, 56px);
     display: grid;
-    grid-template-columns: minmax(180px, 1fr) var(--connector-width) minmax(180px, 1fr) var(--connector-width) minmax(180px, 1fr);
+    grid-template-columns: minmax(0, 1fr) var(--connector-width) minmax(0, 1fr) var(--connector-width) minmax(0, 1fr);
     align-items: stretch;
-    justify-items: stretch;
-    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    justify-items: center;
+    gap: clamp(0.6rem, 2vw, 1rem);
 }
 
 .visual-node {
-    min-width: 180px;
-    padding: 1rem 1.2rem;
+    width: min(100%, 220px);
+    min-width: 0;
+    padding: clamp(0.9rem, 2.5vw, 1.2rem);
     border-radius: var(--radius-medium);
     background: var(--color-surface-soft);
     border: 1px solid rgba(97, 87, 255, 0.18);
     display: grid;
     gap: 0.45rem;
     justify-items: center;
-    width: 100%;
 }
 
 .visual-node strong {
@@ -728,7 +728,7 @@ img, svg {
 }
 
 .visual-connector {
-    width: 100%;
+    width: var(--connector-width);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -809,6 +809,41 @@ img, svg {
     border-style: dashed;
 }
 
+.end2end-faq {
+    margin: clamp(1rem, 3vw, 1.5rem) auto 0;
+    width: min(600px, 100%);
+    padding: clamp(1.25rem, 4vw, 1.75rem);
+    border-radius: var(--radius-medium);
+    border: 1px dashed rgba(97, 87, 255, 0.25);
+    background: var(--color-surface-soft);
+    display: grid;
+    gap: clamp(0.85rem, 3vw, 1.15rem);
+    text-align: left;
+}
+
+.end2end-faq h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.end2end-faq p {
+    margin: 0;
+}
+
+.end2end-faq ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.65rem;
+    list-style: disc;
+}
+
+.end2end-faq-note {
+    font-size: 0.9rem;
+    color: var(--color-text-soft);
+}
+
 .step-number {
     width: 2rem;
     height: 2rem;
@@ -838,7 +873,8 @@ img, svg {
     }
 
     .visual-node {
-        min-width: 140px;
+        width: 100%;
+        max-width: none;
     }
 }
 
