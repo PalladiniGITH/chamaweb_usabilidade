@@ -679,11 +679,12 @@ img, svg {
 }
 
 .asymmetric-lane {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(0.75rem, 3vw, 1.5rem);
+    --connector-width: clamp(42px, 7vw, 68px);
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) var(--connector-width) minmax(150px, 1fr) var(--connector-width) minmax(150px, 1fr);
+    align-items: stretch;
+    justify-items: stretch;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .visual-node {
@@ -695,6 +696,7 @@ img, svg {
     display: grid;
     gap: 0.45rem;
     justify-items: center;
+    width: 100%;
 }
 
 .visual-node strong {
@@ -725,21 +727,40 @@ img, svg {
     font-size: 2rem;
 }
 
-.visual-arrow {
-    display: grid;
-    gap: 0.35rem;
-    justify-items: center;
+.visual-connector {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.arrow-line {
-    width: clamp(56px, 8vw, 84px);
+.connector-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.connector-line::before,
+.connector-line::after {
+    content: "";
+    flex: 1;
     height: 4px;
     border-radius: 999px;
     background: rgba(97, 87, 255, 0.22);
 }
 
-.arrow-icon {
-    font-size: 1.2rem;
+.connector-line::before {
+    margin-right: 0.35rem;
+}
+
+.connector-line::after {
+    margin-left: 0.35rem;
+}
+
+.connector-icon {
+    font-size: 1.35rem;
     color: var(--color-accent-strong);
 }
 
@@ -798,6 +819,17 @@ img, svg {
     color: var(--color-accent-strong);
     background: rgba(97, 87, 255, 0.16);
     font-size: 0.95rem;
+}
+
+@media (max-width: 820px) {
+    .asymmetric-lane {
+        grid-template-columns: minmax(200px, 1fr);
+        gap: 1.25rem;
+    }
+
+    .visual-connector {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
