@@ -658,14 +658,14 @@ img, svg {
 }
 
 /* ===========================================================================
-   Missão Criptografia Assimétrica
+   Missão Criptografia ponta a ponta
    ======================================================================== */
-.asymmetric {
+.end2end {
     display: grid;
     gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.asymmetric-visual {
+.end2end-visual {
     width: min(680px, 100%);
     margin: 0 auto;
     padding: clamp(1.5rem, 4vw, 2.5rem);
@@ -678,17 +678,17 @@ img, svg {
     text-align: center;
 }
 
-.asymmetric-lane {
+.end2end-lane {
     --connector-width: clamp(42px, 7vw, 68px);
     display: grid;
-    grid-template-columns: minmax(150px, 1fr) var(--connector-width) minmax(150px, 1fr) var(--connector-width) minmax(150px, 1fr);
+    grid-template-columns: minmax(180px, 1fr) var(--connector-width) minmax(180px, 1fr) var(--connector-width) minmax(180px, 1fr);
     align-items: stretch;
     justify-items: stretch;
     gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .visual-node {
-    min-width: 150px;
+    min-width: 180px;
     padding: 1rem 1.2rem;
     border-radius: var(--radius-medium);
     background: var(--color-surface-soft);
@@ -779,13 +779,13 @@ img, svg {
     margin: 0;
 }
 
-.asymmetric-steps {
+.end2end-steps {
     display: grid;
     gap: clamp(1rem, 3vw, 1.5rem);
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.asymmetric-step {
+.end2end-step {
     padding: 1.4rem 1.6rem;
     border-radius: var(--radius-medium);
     border: 1px solid var(--color-border);
@@ -794,17 +794,17 @@ img, svg {
     gap: 0.75rem;
 }
 
-.asymmetric-step h3 {
+.end2end-step h3 {
     margin: 0;
     font-size: 1.05rem;
 }
 
-.asymmetric-step p {
+.end2end-step p {
     margin: 0;
     color: var(--color-text-soft);
 }
 
-.asymmetric-step--note {
+.end2end-step--note {
     background: rgba(97, 87, 255, 0.08);
     border-style: dashed;
 }
@@ -822,7 +822,7 @@ img, svg {
 }
 
 @media (max-width: 820px) {
-    .asymmetric-lane {
+    .end2end-lane {
         grid-template-columns: minmax(200px, 1fr);
         gap: 1.25rem;
     }
@@ -833,7 +833,7 @@ img, svg {
 }
 
 @media (max-width: 600px) {
-    .asymmetric-visual {
+    .end2end-visual {
         padding: 1.5rem;
     }
 

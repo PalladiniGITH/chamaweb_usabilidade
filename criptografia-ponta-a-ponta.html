@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Missão Criptografia Assimétrica da jornada Segredos Digitais: visualize as chaves pública e privada trabalhando juntas.">
-    <title>Missão Criptografia Assimétrica | Segredos Digitais</title>
+    <meta name="description" content="Missão Criptografia ponta a ponta da jornada Segredos Digitais: entenda como apps como o WhatsApp blindam as mensagens com chaves entre os contatos.">
+    <title>Missão Criptografia ponta a ponta | Segredos Digitais</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body data-theme="light" data-page="assimetrica">
+<body data-theme="light" data-page="ponta">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
     <header class="site-header">
         <div class="brand">
@@ -35,7 +35,7 @@
         <a data-page="home" href="index.html">Início</a>
         <a data-page="cofre" href="cofre.html">Cofre Invisível</a>
         <a data-page="linguagem" href="linguagem.html">Linguagem Secreta</a>
-        <a data-page="assimetrica" href="criptografia-assimetrica.html">Criptografia Assimétrica</a>
+        <a data-page="ponta" href="criptografia-ponta-a-ponta.html">Criptografia ponta a ponta</a>
         <a data-page="https" href="https.html">HTTPS x HTTP</a>
         <a data-page="vpn" href="vpn.html">Túnel VPN</a>
         <a data-page="guardiao" href="guardiao.html">Guardião Digital</a>
@@ -48,70 +48,70 @@
         <article class="mission">
             <header class="mission-header">
                 <p class="mission-overline">Missão 03</p>
-                <h1>Criptografia Assimétrica</h1>
+                <h1>Criptografia ponta a ponta</h1>
             </header>
-            <p class="mission-intro">Aqui as mensagens usam duas chaves diferentes: uma pode ser compartilhada publicamente e a outra fica guardada só com você. Veja como esse dueto impede invasores de lerem o conteúdo.</p>
-            <div class="mission-content asymmetric">
-                <figure id="asymmetricIllustration" class="asymmetric-visual" role="group" aria-labelledby="fluxoAssimetricoTitulo" aria-describedby="fluxoAssimetricoDescricao">
-                    <h2 id="fluxoAssimetricoTitulo" class="sr-only">Como a criptografia assimétrica protege suas mensagens</h2>
-                    <div class="asymmetric-lane" role="list">
+            <p class="mission-intro">Nos aplicativos com criptografia ponta a ponta — como o WhatsApp — apenas os aparelhos dos contatos conseguem ler o conteúdo. O trajeto inteiro fica fechado e nem o serviço consegue espiar.</p>
+            <div class="mission-content end2end">
+                <figure id="endToEndIllustration" class="end2end-visual" role="group" aria-labelledby="fluxoPontaTitulo" aria-describedby="fluxoPontaDescricao">
+                    <h2 id="fluxoPontaTitulo" class="sr-only">Como a criptografia ponta a ponta protege suas conversas</h2>
+                    <div class="end2end-lane" role="list">
                         <div class="visual-node" role="listitem">
-                            <span class="visual-icon" aria-hidden="true">🤝</span>
-                            <strong>Contato</strong>
-                            <p>Usa sua chave pública</p>
+                            <span class="visual-icon" aria-hidden="true">📱</span>
+                            <strong>Você</strong>
+                            <p>Tranca com a chave do app</p>
                         </div>
                         <div class="visual-connector" aria-hidden="true">
                             <span class="connector-line">
-                                <span class="connector-icon">🔒</span>
+                                <span class="connector-icon">🔐</span>
                             </span>
                         </div>
                         <div class="visual-node visual-node--message" role="listitem">
-                            <span class="visual-icon" aria-hidden="true">📦</span>
-                            <strong>Mensagem</strong>
-                            <code aria-label="Mensagem cifrada">010101</code>
-                            <p>Viaja trancada</p>
+                            <span class="visual-icon" aria-hidden="true">☁️</span>
+                            <strong>WhatsApp</strong>
+                            <code aria-label="Mensagem cifrada">🔒🔒🔒</code>
+                            <p>Só entrega o pacote fechado</p>
                         </div>
                         <div class="visual-connector" aria-hidden="true">
                             <span class="connector-line">
-                                <span class="connector-icon">🔑</span>
+                                <span class="connector-icon">📦</span>
                             </span>
                         </div>
                         <div class="visual-node" role="listitem">
-                            <span class="visual-icon" aria-hidden="true">👩‍💻</span>
-                            <strong>Você</strong>
-                            <p>Abre com a chave privada</p>
+                            <span class="visual-icon" aria-hidden="true">👤</span>
+                            <strong>Seu contato</strong>
+                            <p>Abre com a mesma chave secreta</p>
                         </div>
                     </div>
-                    <figcaption class="visual-note" id="fluxoAssimetricoDescricao">
+                    <figcaption class="visual-note" id="fluxoPontaDescricao">
                         <span class="visual-icon" aria-hidden="true">🕵️</span>
-                        <p>Mesmo interceptando o trajeto, curiosos só enxergam códigos sem sentido.</p>
+                        <p>Quem intercepta o caminho — até o próprio app — enxerga apenas símbolos embaralhados.</p>
                     </figcaption>
                 </figure>
-                <div class="asymmetric-steps" role="list">
-                    <article class="asymmetric-step" role="listitem">
+                <div class="end2end-steps" role="list">
+                    <article class="end2end-step" role="listitem">
                         <span class="step-number">1</span>
-                        <h3>Compartilhe o cadeado público</h3>
-                        <p>Envie a chave pública para quem precisa falar com você. Ela apenas tranca a mensagem.</p>
+                        <h3>Celular tranca na origem</h3>
+                        <p>A mensagem sai do seu aparelho já cifrada com uma chave exclusiva daquele chat.</p>
                     </article>
-                    <article class="asymmetric-step" role="listitem">
+                    <article class="end2end-step" role="listitem">
                         <span class="step-number">2</span>
-                        <h3>Guarde a chave privada</h3>
-                        <p>Só o seu aparelho guarda a chave secreta que abre o cadeado e revela o texto claro.</p>
+                        <h3>Servidor só encaminha</h3>
+                        <p>O WhatsApp guarda o pacote fechado e não consegue ler o conteúdo para entregar.</p>
                     </article>
-                    <article class="asymmetric-step asymmetric-step--note" role="listitem">
+                    <article class="end2end-step end2end-step--note" role="listitem">
                         <span class="step-number" aria-hidden="true">★</span>
-                        <h3>Intercepção não funciona</h3>
-                        <p>Se um invasor copiar a mensagem trancada, continuará preso do lado de fora.</p>
+                        <h3>Só o destino desbloqueia</h3>
+                        <p>O contato autorizado usa a chave final do app para decifrar o texto no aparelho dele.</p>
                     </article>
                 </div>
-                <p class="mission-detail">Esse par de chaves trabalha junto: uma fica pública para proteger o envio e a outra permanece privada para liberar o conteúdo.</p>
+                <p class="mission-detail">Criptografia ponta a ponta significa que apenas os dispositivos dos participantes têm as chaves. Quem estiver no meio do caminho continua sem acesso ao conteúdo.</p>
             </div>
             <aside class="mission-aside">
                 <h2>Dica rápida</h2>
                 <ul>
-                    <li>Chave pública = cadeado aberto para trancar as mensagens.</li>
-                    <li>Chave privada = chave única guardada por você.</li>
-                    <li>Espiões sem a chave privada continuam vendo apenas códigos.</li>
+                    <li>Confie no cadeado do app: ele tranca antes mesmo da mensagem sair.</li>
+                    <li>Ative a verificação em duas etapas para proteger a chave guardada no aparelho.</li>
+                    <li>Repare que notificações de backup na nuvem podem ficar fora dessa proteção.</li>
                 </ul>
             </aside>
         </article>
@@ -123,7 +123,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>Curiosidade: essa técnica garante o cadeado do ícone 🔒 nas conexões HTTPS.</p>
+        <p>Curiosidade: o cadeado do WhatsApp é tão forte que nem a empresa lê suas conversas.</p>
     </footer>
     <script src="script.js" defer></script>
 </body>

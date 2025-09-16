@@ -225,11 +225,11 @@ const SegredosDigitais = (() => {
     });
   };
 
-  const initAsymmetric = () => {
-    const illustration = document.getElementById('asymmetricIllustration');
+  const initEndToEnd = () => {
+    const illustration = document.getElementById('endToEndIllustration');
     if (!illustration) return;
 
-    markMissionComplete('assimetrica', 12);
+    markMissionComplete('ponta', 12);
   };
 
   const initHttps = () => {
@@ -382,8 +382,8 @@ const SegredosDigitais = (() => {
       case 'linguagem':
         initCipher();
         break;
-      case 'assimetrica':
-        initAsymmetric();
+      case 'ponta':
+        initEndToEnd();
         break;
       case 'https':
         initHttps();
